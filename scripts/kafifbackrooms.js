@@ -80,6 +80,11 @@ function action(cat, id) {
                 } else {
                     setTimeout(split, 3000);
                 };
+            } else if(level == 'Fun') {
+                g('text').innerHTML = '';
+                g('buttons').innerHTML = '';
+                g('img').src = 'img/funexploring.png';
+                setTimeout(split, 3000);
             };
         };
     } else if(cat == -1) {
