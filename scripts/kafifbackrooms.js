@@ -14,7 +14,7 @@ function split() {
     if(firstAction) {
         g('img').src = 'img/0split.png';
         g('text').innerHTML = 'HALLWAY SPLITTED IN 2 ROOMS';
-        g('buttons').innerHTML = '<button onclick="action(1, 0)">ROOM 1</button> <button onclick="action(1, 0)">ROOM 2</button> <button onclick="action(1, 1)">WAIT</button>';
+        g('buttons').innerHTML = '<button onclick="action(1, false)">ROOM 1</button> <button onclick="action(1, false)">ROOM 2</button> <button onclick="action(1, true)">WAIT</button>';
     } else {
         if(level == '0') {
             g('img').src = 'img/0split.png';
