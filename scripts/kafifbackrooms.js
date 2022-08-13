@@ -26,6 +26,7 @@ function split() {
             g('buttons').innerHTML = '<button onclick="action(1, 0)">ROOM 1</button> <button onclick="action(1, 0)">ROOM 2</button> <button onclick="action(1, 0)">ROOM 3</button> <button onclick="action(-1, 0)">DIE</button>';
         } else if(level == 'Fun') {
             if(Math.random() >= 0.8) {
+                time = Date.now()
                 g('img').src = 'img/funkafif.png';
                 g('text').innerHTML = 'OH NO THIS IS PARTYFIF RUN!!';
                 g('buttons').innerHTML = '<button onclick="runnnnnnnnnnnnnn()">RUN AWAY</button>';
