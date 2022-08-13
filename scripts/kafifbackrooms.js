@@ -97,6 +97,7 @@ function action(cat, id) {
             g('text').innerHTML = '';
             g('buttons').innerHTML = '';
             g('img').src = 'img/1exploring.png';
+            setTimeout(split, 3000)
         } else if(id == '!') {
             time = Date.now();
             clicks = 0;
