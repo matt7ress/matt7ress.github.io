@@ -85,7 +85,7 @@ function action(cat, id) {
                 g('text').innerHTML = '';
                 g('buttons').innerHTML = '';
                 g('img').src = 'img/funexploring.png';
-                setTimeout(split, 3000);
+                setTimeout([split, ()=>esc('3999')][Math.random() >= 0.991 ? 1 : 0], 3000);
             };
         };
     } else if(cat == -1) {
@@ -151,11 +151,11 @@ function esc(newlvl) {
         g('img').src = 'img/!escape.png';
     } else if(level == '2^63-1' && newlvl == '2') {
         g('text').innerHTML = 'OKAY SO I NERFED IT BECUASE 1234567 CLICKS IS A LOT';
-        g('buttons').innerHTML = '<button onclick="action(2, \'2\')">&%!$#@?</button> <button onclick="action(-1, 4)">JUMP DOWN</button>';
+        g('buttons').innerHTML = '<button onclick="action(2, \'3999\')">&%!$#@?</button> <button onclick="action(-1, 4)">JUMP DOWN</button>';
         g('img').src = 'img/2^63-1escape.png';
     } else if(level == 'Fun' && newlvl == '2') {
         g('text').innerHTML = 'YOU ESCAPED FUN :D';
-        g('buttons').innerHTML = '<button onclick="action(2, \'2\')">GO TO LEVEL undefined</button> <button onclick="action(-1, 5)">LET PARTYFIF TOUCH YOU</button>';
+        g('buttons').innerHTML = '<button onclick="action(2, \'3999\')">GO TO LEVEL undefined</button> <button onclick="action(-1, 5)">LET PARTYFIF TOUCH YOU</button>';
         g('img').src = 'img/funescape.png';
     } else if(level == '2' && newlvl == '11') {
         g('text').innerHTML = 'YOU FOUND EXIT PLEASE SAY THAT THIS IS LEVEL 3';
@@ -218,7 +218,7 @@ function runnnnnnnnnnnnnn() {
 function goup() {
     clicks += 1;
     if(clicks == 5000) {
-        esc('3999');
+        esc('2');
     } else {
         g('text').innerHTML = `OKAY JUST GO UP. ${5000 - clicks} STEP(S) LEFT`;
         g('img').src = `img/2^63-1step${clicks%2+1}.png`;
