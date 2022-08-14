@@ -14,12 +14,12 @@ function split() {
     if(firstAction) {
         g('img').src = 'img/0split.png';
         g('text').innerHTML = 'HALLWAY SPLITTED IN 2 ROOMS';
-        g('buttons').innerHTML = '<button onclick="action(1, false)">ROOM 1</button> <button onclick="action(1, false)">ROOM 2</button> <button onclick="action(1, true)">WAIT</button>';
+        g('buttons').innerHTML = '<button onclick="action(1, 0)">ROOM 1</button> <button onclick="action(1, 0)">ROOM 2</button> <button onclick="action(1, 1)">WAIT</button>';
     } else {
         if(level == '0') {
             g('img').src = 'img/0split.png';
             g('text').innerHTML = 'HALLWAY SPLITTED IN 2 ROOMS';
-            g('buttons').innerHTML = '<button onclick="action(1, 0)">ROOM 1</button> <button onclick="action(1, 0)">ROOM 2</button> <button onclick="action(1, 0)">WAIT</button>';
+            g('buttons').innerHTML = '<button onclick="action(1, 0)">ROOM 1</button> <button onclick="action(1, 0)">ROOM 2</button> <button onclick="action(1, 1)">WAIT</button>';
         } else if(level == '1') {
             g('img').src = 'img/1split.png';
             g('text').innerHTML = 'HALLWAY SPLITTED IN 3 ROOMS';
@@ -57,14 +57,14 @@ function action(cat, id) {
                 if(id) {
                     g('text').innerHTML = '';
                     g('buttons').innerHTML = '';
-                    setTimeout([split, () => {g('text').innerHTML = 'KAFIF FOUND YOU';g('buttons').innerHTML = '<button onclick="play()">TRY AGAIN</button>';g('img').src = 'img/kafif.png'}][Math.random() >= 0.999 ? 1 : 0], 3000);
+                    setTimeout([split, () => {g('text').innerHTML = 'KAFIF FOUND YOU';g('buttons').innerHTML = '<button onclick="play()">TRY AGAIN</button>';g('img').src = 'img/kafif.png'}][Math.random() >= 0.98 ? 1 : 0], 3000);
                 } else {
                     g('text').innerHTML = '';
                     g('buttons').innerHTML = '';
                     g('img').src = 'img/0exploring.png';
                     if(Math.random() >= 0.95) {
                         setTimeout(esc('1'), 3000);
-                    } else if(Math.random() >= 0.999) {
+                    } else if(Math.random() >= 0.9999) {
                         setTimeout(() => {g('text').innerHTML = 'YOU OR KAFIF FOUND YOU OR KAFIF';g('buttons').innerHTML = '<button onclick="play()">TRY AGAIN</button>';g('img').src = 'img/kafif.png'});
                     } else {
                         setTimeout(split, 3000);
@@ -89,7 +89,7 @@ function action(cat, id) {
             };
         };
     } else if(cat == -1) {
-        g('text').innerHTML = ['WHY', 'YOU NEED TO RUN AT LEAST IN 0.25 SECONDS', "KAFIF WAS WAITING FOR YOU, SORRY I DIDN'T SAY ABOUT IT :D", 'PRO TIP: DO 500 CLICKS IN 60 SECONDS', 'YOU WERE CLICKING 1234567 TIMES JUST TO DIE?', "YOU'RE PARTYFIF NOW"][id];
+        g('text').innerHTML = ['WHY', 'YOU NEED TO RUN AT LEAST IN 0.5 SECONDS', "KAFIF WAS WAITING FOR YOU, SORRY I DIDN'T SAY ABOUT IT :D", 'PRO TIP: DO 500 CLICKS IN 60 SECONDS', 'YOU WERE CLICKING 1234567 TIMES JUST TO DIE?', "YOU'RE PARTYFIF NOW", 'NEVER GO BACK'][id];
         g('buttons').innerHTML = '<button onclick="play()">TRY AGAIN</button>';
         g('img').src = 'img/kafif.png';
     } else if(cat == 2) {
@@ -106,7 +106,7 @@ function action(cat, id) {
             g('buttons').innerHTML = '<button onclick="runnnnnnnnnnnnnn()">RUN</button>';
             g('img').src = 'img/1escape.png';
         } else if(id == '2^63-1') {
-            g('text').innerHTML = 'OKAY JUST GO UP. 1234567 STEP(S) LEFT';
+            g('text').innerHTML = 'OKAY JUST GO UP. 5000 STEP(S) LEFT';
             g('buttons').innerHTML = '<button onclick="goup()">NEXT STEP</button>';
             g('img').src = 'img/2^63-1step1.png';
         } else if(id == 'Fun') {
@@ -115,9 +115,18 @@ function action(cat, id) {
             g('img').src = 'img/funexploring.png';
             setTimeout(split, 3000);
         } else if(id == '3999') {
-            g('text').innerHTML = 'GAME IS UNFINISHED SO YOU BEAT IT';
-            g('buttons').innerHTML = '<button onclick="play()">NEW GAME</button>';
+            g('text').innerHTML = 'YOU BEAT THE GAME?';
+            g('buttons').innerHTML = '';
             g('img').src = 'img/3999.png';
+            setTimeout(() => action(2, '2'), 3000);
+        } else if(id == '2') {
+            g('text').innerHTML = 'LEVEL 2? WHAT THE @?&$';
+            g('buttons').innerHTML = '<button onclick="go()">WALK</button>';
+            g('img').src = 'img/2nothing.png';
+        } else if(id == '11') {
+            g('text').innerHTML = 'IS THERE LEVEL 3?';
+            g('buttons').innerHTML = '<button onclick="go()">GO FORWARD</button> <button onclick="go()">GO BACKWARD</button> <button onclick="go()">GO IN RANDOM DIRECTION</button> <button onclick="action(-1, 0)">DIE</button>';
+            g('img').src = 'img/11nothing.png';
         };
     };
 };
@@ -140,19 +149,23 @@ function esc(newlvl) {
         g('text').innerHTML = 'YOU ESCAPED! (did you use autoclicker?)';
         g('buttons').innerHTML = `<button onclick="action(2, \'${newlvl}\')">GO TO LEVEL ???</button> <button onclick="action(-1, 0)">LET KAFIF CATCH YOU</button>`;
         g('img').src = 'img/!escape.png';
-    } else if(level == '2^63-1' && newlvl == '3999') {
-        g('text').innerHTML = 'WAIT HOW';
-        g('buttons').innerHTML = '<button onclick="action(2, \'3999\')">&%!$#@?</button> <button onclick="action(-1, 4)">JUMP DOWN</button>';
+    } else if(level == '2^63-1' && newlvl == '2') {
+        g('text').innerHTML = 'OKAY SO I NERFED IT BECUASE 1234567 CLICKS IS A LOT';
+        g('buttons').innerHTML = '<button onclick="action(2, \'2\')">&%!$#@?</button> <button onclick="action(-1, 4)">JUMP DOWN</button>';
         g('img').src = 'img/2^63-1escape.png';
-    } else if(level == 'Fun' && newlvl == '3999') {
+    } else if(level == 'Fun' && newlvl == '2') {
         g('text').innerHTML = 'YOU ESCAPED FUN :D';
-        g('buttons').innerHTML = '<button onclick="action(2, \'3999\')">GO TO LEVEL undefined</button> <button onclick="action(-1, 5)">LET PARTYFIF TOUCH YOU</button>';
+        g('buttons').innerHTML = '<button onclick="action(2, \'2\')">GO TO LEVEL undefined</button> <button onclick="action(-1, 5)">LET PARTYFIF TOUCH YOU</button>';
         g('img').src = 'img/funescape.png';
+    } else if(level == '2' && newlvl == '11') {
+        g('text').innerHTML = 'YOU FOUND EXIT PLEASE SAY THAT THIS IS LEVEL 3';
+        g('buttons').innerHTML = `<button onclick="action(2, '11')">GO TO LEVEL 3</button> <button onclick="action(-1, 6)">GO BACK</button>`;
+        g('img').src = 'img/2escape.png';
     };
 };
 function runnnnnnnnnnnnnn() {
     if(level == '1') {
-        if(Date.now() - time > 350) {
+        if(Date.now() - time > 500) {
             action(-1, 1);
         } else {
             g('text').innerHTML = 'YOU RUN FROM KAFIF';
@@ -161,7 +174,7 @@ function runnnnnnnnnnnnnn() {
             setTimeout(split, 3000);
         };
     } else if(level == 'Fun') {
-        if(Date.now() - time > 350) {
+        if(Date.now() - time > 500) {
             action(-1, 5);
         } else {
             g('text').innerHTML = 'YOU RUN FROM PARTYFIF';
@@ -182,14 +195,75 @@ function runnnnnnnnnnnnnn() {
             g('buttons').innerHTML = '<button onclick="runnnnnnnnnnnnnn()">RUN</button>';
             g('img').src = `img/!run${clicks%4+1}.png`;
         };
+    } else if(level == '2') {
+        if(Date.now() - time <= 500) {
+            g('text').innerHTML = 'YOU RUN FROM KAFIF';
+            g('buttons').innerHTML = '';
+            g('img').src = '2exploring.png';
+            setTimeout(() => {aftergo(-1)}, 3000);
+        } else {
+            action(-1, 1);
+        };
+    } else if(level == '11') {
+        if(Date.now() - time <= 500) {
+            g('text').innerHTML = 'KAFIF DID NOT CATCH YOU';
+            g('buttons').innerHTML = '';
+            g('img').src = '11exploring.png';
+            setTimeout(() => {aftergo}, 3000);
+        } else {
+            action(-1, 1);
+        };
     };
 };
 function goup() {
     clicks += 1;
-    if(clicks == 1234567) {
+    if(clicks == 5000) {
         esc('3999');
     } else {
-        g('text').innerHTML = `OKAY JUST GO UP. ${1234567 - clicks} STEP(S) LEFT`;
+        g('text').innerHTML = `OKAY JUST GO UP. ${5000 - clicks} STEP(S) LEFT`;
         g('img').src = `img/2^63-1step${clicks%2+1}.png`;
+    };
+};
+function go(x) {
+    if(level == '2') {
+        if(x) {
+            g('text').innerHTML = '';
+            g('buttons').innerHTML = '';
+            g('img').src = 'img/2exploring.png';
+            setTimeout(()=>{aftergo(Math.random() >= 0.80)}, 3000);
+        } else {
+            g('text').innerHTML = '';
+            g('buttons').innerHTML = '';
+            g('img').src = 'img/2exploring.png';
+            setTimeout(()=>{aftergo(0)}, 3000);
+        };
+    } else if(level == '11') {
+        g('text').innerHTML = '';
+        g('buttons').innerHTML = '';
+        g('img').src = 'img/11exploring.png';
+        setTimeout(aftergo, 3000);
+    };
+};
+function aftergo(y) {
+    if(level == '2') {
+        if((Math.random() >= 0.90 && y != -1) | (y == 1 | y == true)) {
+            time = Date.now();
+            g('text').innerHTML = 'OH NO THIS IS KAFIF RUN';
+            g('buttons').innerHTML = '<button onclick="runnnnnnnnnnnnnn()">RUN!</button>';
+            g('img').src = 'img/2kafif.png';
+        } else if(Math.random() >= 0.99) {
+            esc('11');
+        } else {
+            g('text').innerHTML = 'NOTHING IS HERE';
+            g('buttons').innerHTML = '<button onclick="go(0)">GO FORWARD</button> <button onclick="go(1)">GO BACK</button>';
+            g('img').src = 'img/2nothing.png';
+        };
+    } else if(level == '11') {
+        if(Math.random() >= 0.95) {
+            time = Date.now();
+            g('text').innerHTML = 'RUN FROM KAFIF';
+            g('buttons').innerHTML = '<button onclick="runnnnnnnnnnnnnn()">RUN!</button>';
+            g('img').src = 'img/11kafif.png';
+        };
     };
 };
