@@ -1,12 +1,12 @@
 // @@@200@@@text/javascript@@@
 var ats = [['base1', 'base2', 'base3', 'base4'],
-           ['eyes1l', 'eyes1r'],
-           ['mouth0', 'mouth1', 'mouth2']
+           ['none', 'eyes1l', 'eyes1r'],
+           ['none', 'mouth1', 'mouth2']
           ],
     ge = (id) => document.getElementById(id),
     rangeincr = 0,
     e_base = 0,
-    e_eyes = [[0, 1, 2], [1, 5, 2]],
+    e_eyes = [[1, 1, 2], [2, 5, 2]],
     e_mouth = [2, 2, 5],
     e_brows = [],
     /** @type {CanvasRenderingContext2D} */
@@ -17,6 +17,7 @@ function render() {
     ctx.drawImage(ge(ats[1][e_eyes[0][0]]), (e_eyes[0][1])*(16/(7*rangeincr+1)), (e_eyes[0][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[1][e_eyes[1][0]]), (e_eyes[1][1])*(16/(7*rangeincr+1)), (e_eyes[1][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[2][e_mouth[0]]), (e_mouth[1])*(16/(7*rangeincr+1)), (e_mouth[2])*(16/(7*rangeincr+1)));
+    ge('img').src = ge('canv').toDataURL('image/png');
 };
 function setBase(base2set) {
     e_base = base2set;
