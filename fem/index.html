@@ -30,12 +30,12 @@
         <input type=checkbox id="incRange" onclick="incrange(this)"> Increase range<br>
         Base: <button onclick="setBase(0)">Face</button> <button onclick="setBase(1)">Troll</button> <button onclick="setBase(2)">Skull</button> <button onclick="setBase(3)">Mind blown</button><br><br>
         Left eye:<br>
-        <button onclick="setEyes(1, 0)">None</button>
+        <button onclick="setEyes(0, 0)">None</button>
         <button onclick="setEyes(1, 0)">Happy/Blushing/Puzzled/Clown Left Eye</button><br>
         <button onclick="setEyes(2, 0)">Happy/Blushing/Puzzled/Clown/Sweating Right Eye</button><br>
         <input id="lefteyex" placeholder="X Pos" style="width:80px" type=number min=-7 max=7 value=1 oninput="setEyes(e_eyes[0][0], 0)"> <input id="lefteyey" placeholder="Y Pos" style="width:80px" type=number min=-7 max=7 value=2 oninput="setEyes(e_eyes[0][0], 0)"><br><br>
         Right eye:<br>
-        <button onclick="setEyes(1, 1)">None</button>
+        <button onclick="setEyes(0, 1)">None</button>
         <button onclick="setEyes(0, 1)">Happy/Blushing/Puzzled/Clown Left Eye</button><br>
         <button onclick="setEyes(1, 1)">Happy/Blushing/Puzzled/Clown/Sweating Right Eye</button><br>
         <input id="righteyex" placeholder="X Pos" style="width:80px" type=number min=-7 max=7 value=5 oninput="setEyes(e_eyes[1][0], 1)"> <input id="righteyey" placeholder="Y Pos" style="width:80px" type=number min=-7 max=7 value=2 oninput="setEyes(e_eyes[1][0], 1)"><br><br>
