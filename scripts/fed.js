@@ -1,6 +1,6 @@
 var ats = [['base1', 'base2', 'base3', 'base4'],
-           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'eyes3'],
-           ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5'],
+           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'eyes3', 'eyes4'],
+           ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5', 'mouth6'],
            ['none', 'brows1l', 'brows1r', 'brows2l', 'brows2r'],
            ['none', 'sweat']
           ],
