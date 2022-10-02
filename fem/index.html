@@ -1,0 +1,49 @@
+<!-- @@@200@@@text/html@@@ -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fancade Emoji Maker</title>
+        <style>button{font-family:monospace}input{font-family:monospace}</style>
+    </head>
+    <body style="font-family:monospace">
+        <div style="display: none">
+            <img id="base1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf7MTgAAAN3R63IAAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAGxJREFUeF7t2jEKACEMRUFz/0tv80mxIMIuosVMKSR5B3DUwvgpa6YECBAgQIAAAfcFZG6bnGkCBAgQIECAgPMBAAAAAAAAAAD5R9DyvE3ONAECBAgQIEDAfQFvmfssa6YECBAgQIAAAYcDqh5XLQwB9jAAawAAAABJRU5ErkJggg==">
+            <img id="base2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf7MTgAAAN3R63IAAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAARFJREFUeF7t2TFOREEQQ0H2/pcmKXXmACEPBK6w5d03+f/6/NDXL/mbswfsAXvAHrAH7AF7wP9/gN/16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajc5zf0T3O7+ge53d0j/M7usf5Hd3j/I7ucX5H9zi/o3uc39E9zu/oHud3dI/zO7rH+R3d4/yO7nF+R/c4z8zMzMzMzMzMzMzMvOM7xXGukTl7wB6wB+wBe8AesAf88QM+n29MrwsBRk2XJQAAAABJRU5ErkJggg==">
+            <img id="base3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJUExURc3Y3am4wQAAAAVSiGMAAAADdFJOU///ANfKDUEAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABrSURBVHhe7dqxDcAgDEVB4v2HTvPlIpJFEUWkuCstMG8AVm2sl7JmJECAAAECBAj4X0DufSbPNAECBAgQIEDA+QAAAAAAAAAAgPwjGOVYux4ybhm3rBkJECBAgAABAgQIECBAgAABAg4HVN3yiiAB6kYRHgAAAABJRU5ErkJggg==">
+            <img id="base4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAPUExURd/n68/W3vBuJv7MTgAAAPvlTxMAAAAFdFJOU/////8A+7YOUwAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAJxJREFUeF7t2TEKwzAUREE70f3PnGbZQiACDkEq5pUL/pre1/jSNXVPZW6ZW84sAwAAAAAAADgPkDstd1rmlrllbplbnmkAAAAAAAAA5wHmXj+WM8sAAAAAAAAA9gPemwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2A/If4OW/W/lmQYAAAAAAABwHmAu3z0uZ5YBAAAAAAAAbAaM8QGAi7MBR9v65AAAAABJRU5ErkJggg==">
+            <img id="eyes1l" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///2VFAeHXUWMAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAATSURBVCjPYxgF2IEgFIxoAUFBAGRcCIFfwAlxAAAAAElFTkSuQmCC">
+            <img id="eyes1r" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///2VFAeHXUWMAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAUSURBVCjPYxgFqEAQCkYFgICBAQCoXAiBlxc8MAAAAABJRU5ErkJggg==">
+            <img id="mouth0" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAANSURBVBhXY2BgYGAAAAAFAAGKM+MAAAAAAElFTkSuQmCC">
+            <img id="mouth1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABsSURBVGhD7ZixDYAwDMBafuMUruIUjoPFH2RgsL04Y2UpQ7qvc79rwP28m/EXpu8/sJYCYC0FwFoKgLUUAGspANZSAKylAFjL+Jaf3uNTpv8RrQDWUgCspQBYSwGwlgJgLQXAWgqAtcgDrPUBPswJ6U/VbgYAAAAASUVORK5CYII=">
+            <img id="mouth2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB1SURBVGhD7ZixEYAwDMQSdoNNYCjYBHYDGk0QF9yhVyM3KaI7N+7r3J9WYD9vpm/YlolpjNrrH5AAWEsCYC0JgLUkANaSAFhLAmAtCYC1dDxM9Z5Q5bie0h+yAlhLAmAtCYC1JADWkgBYSwJgLQmAtcgDtPYC3uwI6bmYmcQAAAAASUVORK5CYII=">
+        </div>
+        <center><b><h1>
+            Fancade Emoji Maker
+        </h1><h3>
+            Made by Matrus
+        </h3></b></center>
+        <canvas id="canv" width=128 height="128"></canvas><br>
+        <input type=checkbox id="incRange" onclick="incrange(this)"> Increase range<br>
+        Base: <button onclick="setBase(0)">Face</button> <button onclick="setBase(1)">Troll</button> <button onclick="setBase(2)">Skull</button> <button onclick="setBase(3)">Mind blown</button><br><br>
+        Left eye:<br>
+        <button onclick="setEyes(0, 0)">Happy/Blushing/Puzzled/Clown Left Eye</button><br>
+        <button onclick="setEyes(1, 0)">Happy/Blushing/Puzzled/Clown/Sweating Right Eye</button><br>
+        <input id="lefteyex" placeholder="X Pos" style="width:80px" type=number min=-7 max=7 value=1 oninput="setEyes(e_eyes[0][0], 0)"> <input id="lefteyey" placeholder="Y Pos" style="width:80px" type=number min=-7 max=7 value=2 oninput="setEyes(e_eyes[0][0], 0)"><br><br>
+        Right eye:<br>
+        <button onclick="setEyes(0, 1)">Happy/Blushing/Puzzled/Clown Left Eye</button><br>
+        <button onclick="setEyes(1, 1)">Happy/Blushing/Puzzled/Clown/Sweating Right Eye</button><br>
+        <input id="righteyex" placeholder="X Pos" style="width:80px" type=number min=-7 max=7 value=5 oninput="setEyes(e_eyes[1][0], 1)"> <input id="righteyey" placeholder="Y Pos" style="width:80px" type=number min=-7 max=7 value=2 oninput="setEyes(e_eyes[1][0], 1)"><br><br>
+        Mouth:<br>
+        <button onclick="setMouth(0)">None (skull)</button><br>
+        <button onclick="setMouth(1)">Relief/Sweatnope Mouth</button><br>
+        <button onclick="setMouth(2)">Blushing/Happy/Sweatsmile Mouth</button><br>
+        <input id="mouthx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=2 oninput="setMouth(e_mouth[0])"><br>
+        <input id="mouthy" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setMouth(e_mouth[0])"><br>
+
+
+        <script src="/scripts/fem.js"></script><script>render()</script>
+    </body>
+</html>
