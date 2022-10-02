@@ -1,7 +1,8 @@
 var ats = [['base1', 'base2', 'base3', 'base4'],
-           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r'],
-           ['none', 'mouth1', 'mouth2'],
-           ['none', 'brows1l', 'brows1r']
+           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'eyes3'],
+           ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5'],
+           ['none', 'brows1l', 'brows1r', 'brows2l', 'brows2r'],
+           ['none', 'sweat']
           ],
     ge = (id) => document.getElementById(id),
     rangeincr = 0,
@@ -9,11 +10,13 @@ var ats = [['base1', 'base2', 'base3', 'base4'],
     e_eyes = [[1, 1, 2], [2, 5, 2]],
     e_mouth = [2, 2, 5],
     e_brows = [[0, 0, 0], [0, 0, 0]],
+    e_sweat = [0, 3, 1],
     /** @type {CanvasRenderingContext2D} */
     ctx = ge('canv').getContext('2d');
 function render() {
     ctx.clearRect(0, 0, 128, 128);
     ctx.drawImage(ge(ats[0][e_base]), 0, 0);
+    ctx.drawImage(ge(ats[4][e_sweat[0]]), (e_sweat[1])*(16/(7*rangeincr+1)), (e_sweat[2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[1][e_eyes[0][0]]), (e_eyes[0][1])*(16/(7*rangeincr+1)), (e_eyes[0][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[1][e_eyes[1][0]]), (e_eyes[1][1])*(16/(7*rangeincr+1)), (e_eyes[1][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[2][e_mouth[0]]), (e_mouth[1])*(16/(7*rangeincr+1)), (e_mouth[2])*(16/(7*rangeincr+1)));
@@ -72,6 +75,14 @@ function incrange(cb) {
         ge('rightbrowy').value = Math.min(Math.max(Number(ge('rightbrowy').value)*8, -127), 127);
         e_brows[1][1] = ge('rightbrowx').value;
         e_brows[1][2] = ge('rightbrowy').value;
+        ge('sweatx').min = -127;
+        ge('sweaty').min = -127;
+        ge('sweatx').max = 127;
+        ge('sweaty').max = 127;
+        ge('sweatx').value = Math.min(Math.max(Number(ge('sweatx').value)*8, -127), 127);
+        ge('sweaty').value = Math.min(Math.max(Number(ge('sweaty').value)*8, -127), 127);
+        e_sweat[1] = ge('sweatx').value;
+        e_sweat[2] = ge('sweaty').value;
     } else {
         ge('lefteyex').min = -1;
         ge('lefteyey').min = -1;
@@ -113,6 +124,14 @@ function incrange(cb) {
         ge('rightbrowy').value = Math.min(Math.max(Math.round(Number(ge('rightbrowy').value)/8), -1), 7);
         e_brows[1][1] = ge('rightbrowx').value;
         e_brows[1][2] = ge('rightbrowy').value;
+        ge('sweatx').min = -1;
+        ge('sweaty').min = -1;
+        ge('sweatx').max = 7;
+        ge('sweaty').max = 7;
+        ge('sweatx').value = Math.min(Math.max(Math.round(Number(ge('sweatx').value)/8), -1), 7);
+        ge('sweaty').value = Math.min(Math.max(Math.round(Number(ge('sweaty').value)/8), -1), 7);
+        e_sweat[1] = ge('sweatx').value;
+        e_sweat[2] = ge('sweaty').value;
     };
     render();
 };
@@ -122,5 +141,9 @@ function setMouth(nm) {
 };
 function setBrows(brow, side) {
     e_brows = side ? [e_brows[0], [brow, Number(ge('rightbrowx').value), Number(ge('rightbrowy').value)]] : [[brow, Number(ge('leftbrowx').value), Number(ge('leftbrowy').value)], e_brows[1]];
+    render();
+};
+function setSweat(sw) {
+    e_sweat = [sw, Number(ge('sweatx').value), Number(ge('sweaty').value)];
     render();
 };
