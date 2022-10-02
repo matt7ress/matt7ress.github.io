@@ -32,6 +32,7 @@
             <img id="brows2l" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABHSURBVFhH7daxEQAgCAQwcDdHcSpHcThtnEAKm3wDZe6+gIxiRs9916e0O78FAAAAAAAAIKv3fK5d+ilUAAAAAAAA8BkQcQAV5gXp+H5h/QAAAABJRU5ErkJggg==">
             <img id="brows2r" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABJSURBVFhH7daxDQAgCERRzt0cxakcxeEwJkzgFTT/N1i+hAK1pjKM9knV86tRsy0AAAAAAAAAgHXLX+5/ghUAAAAAAAAAzYCIC+xUBemn8WgyAAAAAElFTkSuQmCC">
             <img id="sweat" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB4SURBVGhD7dexDYAwDABBm1HoKGhZiILd2IlZQEiZIC5elv6auH3JRZzn/bxRcGzrmOZce+YYpyzjbcsAmgE0A2gG0AygGUAzgFb6i//oe8IVohlAM4BmAM0AmgE0A2jtA/B7oMoVohlAM4BmAM0AmgE0A2jNAyI+1KQKsfAg434AAAAASUVORK5CYII=">
+            <img id="blush" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAQBAMAAACFLmBqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAADUExURf95pUGjnO8AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAOSURBVCjPYxgFSICBAQABEAAB5oO2MQAAAABJRU5ErkJggg==">
         </div>
         <center><b><h1>
             Fancade Emoji Designer
@@ -89,6 +90,16 @@
         <button onclick="setSweat(1)">Sweat</button><br>
         <input id="sweatx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setSweat(e_sweat[0])"><br>
         <input id="sweaty" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setSweat(e_sweat[0])"><br><br>
+        Left Blush:<br>
+        <button onclick="setBlush(0, 0)">None</button><br>
+        <button onclick="setBlush(1, 0)">Blush</button><br>
+        <input id="leftblushx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setBlush(e_blush[0][0], 0)"><br>
+        <input id="leftblushy" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setBlush(e_blush[0][0], 0)"><br><br>
+        Right Blush:<br>
+        <button onclick="setBlush(0, 1)">None</button><br>
+        <button onclick="setBlush(1, 1)">Blush</button><br>
+        <input id="rightblushx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setBlush(e_blush[1][0], 1)"><br>
+        <input id="rightblushy" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setBlush(e_blush[1][0], 1)"><br><br>
 
 
         <script src="/scripts/fed.js"></script><script>render()</script>
