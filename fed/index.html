@@ -40,7 +40,7 @@
             Made by Matrus
         </h3></b></center>
         <canvas style="display:none" id="canv" width=128 height="128"></canvas>
-        <img id="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAA3xJREFUeF7t3c15FEEMhOGeTQnHwA2TBcRABMQAWWBuxGBS8vJsDN9B6PHru/qnVK0q9cyOrzP89/b6fB9ewuj0t6eXa3IBo5M/No4ACKACDJYAFWAQ/MfUJIAHGD2Eo5PzACoAE6gL0AZO2hASMIk+E+geQBegCxitwqOT6wJ0AboAXYAuYNKHkoBJ9HUBuoD1XcB7f5w7XEDyw6QsAQgwS4FaQRBgNn95dgTIEO4eAAF25y+vHgEyhLsHQIDd+curR4AM4e4BEGB3/vLqESBDuHsABNidv7x6BMgQ7h4AAXbnL68eATKEuwdAgN35y6tHgAzh7gEyAerj3OvDr1EE738/j86/ff8XAjT+IIAK0BgUo2sFVAFiAlQAFSBSqIWrAExgYhAJSPCdQwJIQKRQCycBJCAxiAQk+EjAeg2M+V+/fxUgMoAJZAIjhVo4E8gEJgaRgAQfE7jeBMX8r9//eAX48vGWcvDj+6cUX4O/fvudhvj55y3Fr/cACIAA6QSoAO2NKBKQ6HcOCYj3ACSABKQzSAJIQCJQDSYBJCBxSBvoHiARyD2Ai6BEIG1ggk8bmO/CtYHawHQGtYHawESgGqwN1AYmDmkDtYGJQONtYFq94HEEchs4vgMLSAggQIJvfzAC7M9h2gECJPj2ByPA/hymHSBAgm9/MALsz2HaAQIk+PYHI8D+HKYdIECCb38wAuzPYdoBAiT49gcjwP4cph0gQIJvfzAC7M9h2sE4AaZfqUronXO2v9SKAJEBCBABVAFmv3CiAkQCqwARQBVABUgUqq9Vp8mZwArf/G/r6g5IQESQBJCARCESkOA7uoCGn4ugiN/4Z9bq+nmAiCAPwAMkCvEACT4eoMHnYVDFjwcY/siVLiBSeL0JjPs/9d/P1/mriazzT3+j6Pb0cpU9pODHxAgw6+IRIP7HjnJ6HrEqwOvzvYJY4kkACSj8ybEqgAqQSVQG4AF4gGTkU7AugAnUBg7f5JEAEpCqeAomASSABJAAF0GljauxPAAPkGQ8BfMAPAAP8N49QNWw6cfJdf01vmp4nT9LQF0AArSneRV/BKgIxngVYPhpYsxfDkcABBitwqOT/w9tZD7CcQAVQAUYPYSjk6sA56gAKsDoIRydXAVQAcavkqOHy+EkgASMVuHRyUkACSAB8cedVYNUgIpgjOcBeIDRQ/gP/a9GbhRsr7EAAAAASUVORK5CYII="><br>
+        <img id="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAA4VJREFUeF7t3LFxVEEQhOF7F4o8bFSEgIeI4sDGJAJMbCAKhEcMCoEiDxwddTH8qpqaqg+/2X09Pd07+57uOA3/e356uA5vYXT58/3jMbmB0cVvD04ABMABBi2AAwySf1taBDgDjDbh6OLOABzAIdAUYAycPIaIgEn2HQLdA5gCTAGjLjy6uCnAFGAKMAWYAibPoSJgkn1TgClg/RSw/XXu5e/X5AFvXt0l/OXf+4SvAsoRQAAEsPp9PgdIBrQ/wwmAABIDzgDLr3I5QNK/COAAHCC1kDEw0dfBIiBy6B7APYB7gNBEIiCQ9xJQERBZFAEiQASEJhIBgbyXgIqAyKIIWB4B2wsY9Zvh2x3kIICmAQJo/K1HE8D6ErYHIIDG33o0AawvYXsAAmj8rUcTwPoStgcggMbfejQBrC9hewACaPytRxPA+hK2ByCAxt96NAGsL2F7AAJo/K1HE8D6ErYHWC+A6/WaPun68PacGPz25V3CH69/Jnzd//PlT1q/gn/cfUr/xUEATcAEwAFSB1YwBxABSUMiIDqYCIgEOgSmBj6JABGQFCQCooOJgEigCEgNLAJcBLkISi3kJtBVcBKQM4AzQBJQBRsDjYFJQ8bA6GAiIBJoDEwN3MdAfx7eCrAd7fcBtlcw7p8AIoHb4QSwvYJx/wQQCdwOJ4DtFYz7J4BI4HY4AWyvYNw/AUQCt8MJYHsF4/4JIBK4HU4A2ysY908AkcDtcALYXsG4fwKIBG6HE8D2Csb9ZwF8/PwrbeH77+eEr+D6VXD9oKXuv+IJYPiLplrAiicAAnhIPxEjAtpP3NQOrngOwAE4QOkih0BTQNHPOFYEiAARUNpQBIiAop9xrAgQASKgtKEIEAFFP+NYESACREBpQxEgAop+xrFH3UH9fYH6Mqnuf3sHn+8fUw0T+EY+AVQJNjwBNP5OHCASyAEigRHOASKBHCASyAEigRHOASKBHCASyAEigRHOASKBHCASyAEigRHOASKBHCASyAEigRHOASKBHCASyAEigRHOASKBHCASyAEigRE+7gBx//l1cl1/Gl8LWPefvweoG6gOUtefxhPAU/smcbqAdX0CIIBRFx5d/NY9IqB901cdiAAqgxEvAkTAaBOOLi4CTicOwAFGm3B0cQ7AAUwB8S974hn0xAEqgxHvDOAMMNqEo4s7AzgDOAM4A3gZFI8RCf4fC9lWbo4WCZAAAAAASUVORK5CYII="><br>
         <input type=checkbox id="incRange" onclick="incrange(this)"> Increase range<br>
         Base: <button onclick="setBase(0)">Face</button> <button onclick="setBase(1)">Troll</button> <button onclick="setBase(2)">Skull</button> <button onclick="setBase(3)">Mind blown</button><br><br>
         Left eye:<br>
@@ -51,7 +51,7 @@
         <button onclick="setEyes(4, 0)">Pointing Right Eye</button><br>
         <button onclick="setEyes(5, 0)">Mind Blowing/Sweatnope Eyes</button><br>
         <button onclick="setEyes(6, 0)">Megastonish Eyes</button><br>
-        <input id="lefteyex" placeholder="X Pos" style="width:80px" type=number min=-7 max=7 value=1 oninput="setEyes(e_eyes[0][0], 0)"> <input id="lefteyey" placeholder="Y Pos" style="width:80px" type=number min=-7 max=7 value=2 oninput="setEyes(e_eyes[0][0], 0)"><br><br>
+        <input id="lefteyex" placeholder="X Pos" style="width:80px" type=number min=-7 max=7 value=0 oninput="setEyes(e_eyes[0][0], 0)"> <input id="lefteyey" placeholder="Y Pos" style="width:80px" type=number min=-7 max=7 value=3 oninput="setEyes(e_eyes[0][0], 0)"><br><br>
         Right eye:<br>
         <button onclick="setEyes(0, 1)">None</button><br>
         <button onclick="setEyes(1, 1)">Happy/Blushing/Puzzled/Clown Left Eye</button><br>
@@ -60,7 +60,7 @@
         <button onclick="setEyes(4, 1)">Pointing Right Eye</button><br>
         <button onclick="setEyes(5, 1)">Mind Blowing/Sweatnope Eyes</button><br>
         <button onclick="setEyes(6, 1)">Megastonish Eyes</button><br>
-        <input id="righteyex" placeholder="X Pos" style="width:80px" type=number min=-7 max=7 value=5 oninput="setEyes(e_eyes[1][0], 1)"> <input id="righteyey" placeholder="Y Pos" style="width:80px" type=number min=-7 max=7 value=2 oninput="setEyes(e_eyes[1][0], 1)"><br><br>
+        <input id="righteyex" placeholder="X Pos" style="width:80px" type=number min=-7 max=7 value=3 oninput="setEyes(e_eyes[1][0], 1)"> <input id="righteyey" placeholder="Y Pos" style="width:80px" type=number min=-7 max=7 value=3 oninput="setEyes(e_eyes[1][0], 1)"><br><br>
         Mouth:<br>
         <button onclick="setMouth(0)">None (skull)</button><br>
         <button onclick="setMouth(1)">Relief/Sweatnope Mouth</button><br>
@@ -69,7 +69,7 @@
         <button onclick="setMouth(4)">Cut Off Mouth</button><br>
         <button onclick="setMouth(5)">Mind Blowing/Astonish Mouth</button><br>
         <button onclick="setMouth(6)">Megastonish Mouth</button><br>
-        <input id="mouthx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=2 oninput="setMouth(e_mouth[0])"><br>
+        <input id="mouthx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=1 oninput="setMouth(e_mouth[0])"><br>
         <input id="mouthy" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setMouth(e_mouth[0])"><br><br>
         Left brow:<br>
         <button onclick="setBrows(0, 0)">None</button><br>
@@ -80,16 +80,16 @@
         <input id="leftbrowx" placeholder="X Pos" style="width:80px" type=number min=-7 max=7 value=1 oninput="setBrows(e_brows[0][0], 0)"> <input id="leftbrowy" placeholder="Y Pos" style="width:80px" type=number min=-7 max=7 value=1 oninput="setBrows(e_brows[0][0], 0)"><br><br>
         Right brow:<br>
         <button onclick="setBrows(0, 1)">None</button><br>
-        <button onclick="setBrows(1, 1)">Concerned Left Brow</button><br>
-        <button onclick="setBrows(2, 1)">Concerned Right Brow</button><br>
+        <button onclick="setBrows(1, 1)">Concerned/Disappoint Left Brow</button><br>
+        <button onclick="setBrows(2, 1)">Concerned/Disappoint Right Brow</button><br>
         <button onclick="setBrows(3, 1)">Relief Left Brow</button><br>
         <button onclick="setBrows(4, 1)">Relief Right Brow</button><br>
         <input id="rightbrowx" placeholder="X Pos" style="width:80px" type=number min=-7 max=7 value=5 oninput="setBrows(e_brows[1][0], 1)"> <input id="rightbrowy" placeholder="Y Pos" style="width:80px" type=number min=-7 max=7 value=1 oninput="setBrows(e_brows[1][0], 1)"><br><br>
         Sweat:<br>
         <button onclick="setSweat(0)">None</button><br>
         <button onclick="setSweat(1)">Sweat</button><br>
-        <input id="sweatx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setSweat(e_sweat[0])"><br>
-        <input id="sweaty" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setSweat(e_sweat[0])"><br><br>
+        <input id="sweatx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=4 oninput="setSweat(e_sweat[0])"><br>
+        <input id="sweaty" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=1 oninput="setSweat(e_sweat[0])"><br><br>
         Left Blush:<br>
         <button onclick="setBlush(0, 0)">None</button><br>
         <button onclick="setBlush(1, 0)">Blush</button><br>

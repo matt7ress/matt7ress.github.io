@@ -8,10 +8,10 @@ var ats = [['base1', 'base2', 'base3', 'base4'],
     ge = (id) => document.getElementById(id),
     rangeincr = 0,
     e_base = 0,
-    e_eyes = [[1, 1, 2], [2, 5, 2]],
-    e_mouth = [2, 2, 5],
+    e_eyes = [[4, 0, 3], [4, 3, 3]],
+    e_mouth = [2, 1, 5],
     e_brows = [[0, 0, 0], [0, 0, 0]],
-    e_sweat = [0, 3, 1],
+    e_sweat = [1, 4, 1],
     e_blush = [[0, 0, 4], [0, 6, 4]],
     /** @type {CanvasRenderingContext2D} */
     ctx = ge('canv').getContext('2d');
