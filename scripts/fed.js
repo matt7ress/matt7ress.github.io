@@ -1,10 +1,11 @@
-var ats = [['base1', 'base2', 'base3', 'base4'],
-           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'eyes3', 'eyes4'],
-           ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5', 'mouth6'],
-           ['none', 'brows1l', 'brows1r', 'brows2l', 'brows2r'],
-           ['none', 'sweat'],
+var ats = [['base1', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7'],
+           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'eyes3', 'eyes4', 'eyes5l', 'eyes5r'],
+           ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5', 'mouth6', 'mouth7', 'mouth8', 'mouth9', 'mouth10'],
+           ['none', 'brows1l', 'brows1r', 'brows2l', 'brows2r', 'brows3l', 'brows3r'],
+           ['none', 'sweat1', 'sweat2'],
            ['none', 'blush'],
-           ['none', 'QM']
+           ['none', 'QM', 'sleep'],
+           ['none', 'nose1']
           ],
     ge = (id) => document.getElementById(id),
     rangeincr = 0,
@@ -15,16 +16,18 @@ var ats = [['base1', 'base2', 'base3', 'base4'],
     e_sweat = [1, 4, 1],
     e_blush = [[0, 0, 4], [0, 6, 4]],
     e_QM = [0, 4, 0],
+    e_nose = [0, 3.5, 4.5],
     /** @type {CanvasRenderingContext2D} */
     ctx = ge('canv').getContext('2d');
 function render() {
     ctx.clearRect(0, 0, 128, 128);
     ctx.drawImage(ge(ats[0][e_base]), 0, 0);
-    ctx.drawImage(ge(ats[4][e_sweat[0]]), (e_sweat[1])*(16/(7*rangeincr+1)), (e_sweat[2])*(16/(7*rangeincr+1)));
+    ctx.drawImage(ge(ats[7][e_nose[0]]), (e_nose[1])*(16/(7*rangeincr+1)), (e_nose[2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[5][e_blush[0][0]]), (e_blush[0][1])*(16/(7*rangeincr+1)), (e_blush[0][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[5][e_blush[1][0]]), (e_blush[1][1])*(16/(7*rangeincr+1)), (e_blush[1][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[1][e_eyes[0][0]]), (e_eyes[0][1])*(16/(7*rangeincr+1)), (e_eyes[0][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[1][e_eyes[1][0]]), (e_eyes[1][1])*(16/(7*rangeincr+1)), (e_eyes[1][2])*(16/(7*rangeincr+1)));
+    ctx.drawImage(ge(ats[4][e_sweat[0]]), (e_sweat[1])*(16/(7*rangeincr+1)), (e_sweat[2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[2][e_mouth[0]]), (e_mouth[1])*(16/(7*rangeincr+1)), (e_mouth[2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[3][e_brows[0][0]]), (e_brows[0][1])*(16/(7*rangeincr+1)), (e_brows[0][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[3][e_brows[1][0]]), (e_brows[1][1])*(16/(7*rangeincr+1)), (e_brows[1][2])*(16/(7*rangeincr+1)));
@@ -106,6 +109,22 @@ function incrange(cb) {
         ge('rightblushy').value = Math.min(Math.max(Number(ge('rightblushy').value)*8, -63), 63);
         e_blush[1][1] = ge('rightblushx').value;
         e_blush[1][2] = ge('rightblushy').value;
+        ge('QMx').min = -63;
+        ge('QMy').min = -63;
+        ge('QMx').max = 63;
+        ge('QMy').max = 63;
+        ge('QMx').value = Math.min(Math.max(Math.round(Number(ge('QMx').value)/8), -7), 7);
+        ge('QMy').value = Math.min(Math.max(Math.round(Number(ge('QMy').value)/8), -7), 7);
+        e_QM[1] = ge('QMx').value;
+        e_QM[2] = ge('QMy').value;
+        ge('nosex').min = -63;
+        ge('nosey').min = -63;
+        ge('nosex').max = 63;
+        ge('nosey').max = 63;
+        ge('nosex').value = Math.min(Math.max(Math.round(Number(ge('nosex').value)/8), -7), 7);
+        ge('nosey').value = Math.min(Math.max(Math.round(Number(ge('nosey').value)/8), -7), 7);
+        e_nose[1] = ge('nosex').value;
+        e_nose[2] = ge('nosey').value;
     } else {
         ge('lefteyex').min = -7;
         ge('lefteyey').min = -7;
@@ -179,6 +198,14 @@ function incrange(cb) {
         ge('QMy').value = Math.min(Math.max(Math.round(Number(ge('QMy').value)/8), -7), 7);
         e_QM[1] = ge('QMx').value;
         e_QM[2] = ge('QMy').value;
+        ge('nosex').min = -7;
+        ge('nosey').min = -7;
+        ge('nosex').max = 7;
+        ge('nosey').max = 7;
+        ge('nosex').value = Math.min(Math.max(Math.round(Number(ge('nosex').value)/8), -7), 7);
+        ge('nosey').value = Math.min(Math.max(Math.round(Number(ge('nosey').value)/8), -7), 7);
+        e_nose[1] = ge('nosex').value;
+        e_nose[2] = ge('nosey').value;
     };
     render();
 };
@@ -200,5 +227,9 @@ function setBlush(blush, side) {
 };
 function setQM(daqm) {
     e_QM = [daqm, Number(ge('QMx').value), Number(ge('QMy').value)];
+    render();
+};
+function setNose(danose) {
+    e_nose = [danose, Number(ge('nosex').value), Number(ge('nosey').value)];
     render();
 };
