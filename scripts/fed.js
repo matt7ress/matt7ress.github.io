@@ -1,15 +1,16 @@
-var ats = [['base1', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7'],
-           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'eyes3', 'eyes4', 'eyes5l', 'eyes5r'],
+var ats = [['none', 'base1', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7', 'base8'],
+           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'eyes3', 'eyes4', 'eyes5l', 'eyes5r', 'eyes6'],
            ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5', 'mouth6', 'mouth7', 'mouth8', 'mouth9', 'mouth10'],
            ['none', 'brows1l', 'brows1r', 'brows2l', 'brows2r', 'brows3l', 'brows3r'],
-           ['none', 'sweat1', 'sweat2'],
+           ['none', 'sweat1', 'sweat2', 'sweat3', 'sweat4'],
            ['none', 'blush'],
            ['none', 'QM', 'sleep'],
            ['none', 'nose1']
           ],
     ge = (id) => document.getElementById(id),
     rangeincr = 0,
-    e_base = 0,
+    code = '0;1;4:0:3;4:3:3;2:1:5;;;;1:4:1;;;;'.split(';'),
+    e_base = 1,
     e_eyes = [[4, 0, 3], [4, 3, 3]],
     e_mouth = [2, 1, 5],
     e_brows = [[0, 0, 0], [0, 0, 0]],
@@ -33,6 +34,7 @@ function render() {
     ctx.drawImage(ge(ats[3][e_brows[1][0]]), (e_brows[1][1])*(16/(7*rangeincr+1)), (e_brows[1][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[6][e_QM[0]]), (e_QM[1])*(16/(7*rangeincr+1)), (e_QM[2])*(16/(7*rangeincr+1)));
     ge('img').src = ge('canv').toDataURL('image/png');
+    save();
 };
 function setBase(base2set) {
     e_base = base2set;
@@ -232,4 +234,24 @@ function setQM(daqm) {
 function setNose(danose) {
     e_nose = [danose, Number(ge('nosex').value), Number(ge('nosey').value)];
     render();
+};
+function load() {
+    code = ge('savecode').value.split(';');
+    rangeincr = Number(code[0]);
+    ge('incRange').value = Boolean(rangeincr);
+    e_base = Number(code[1]);
+    var getprop = (n) => code[n] != '' ? [Number(code[n].split(':')[0]), Number(code[n].split(':')[1]), Number(code[n].split(':')[2])] : [0, 0, 0];
+    e_eyes = [getprop(2), getprop(3)];
+    e_mouth = getprop(4);
+    e_nose = getprop(5);
+    e_brows = [getprop(6), getprop(7)];
+    e_sweat = getprop(8);
+    e_blush = [getprop(9), getprop(10)];
+    e_QM = getprop(11);
+    render();
+};
+function save() {
+    var j = (x) => x[0] == 0 ? [] : x.join(':');
+    code = [rangeincr, e_base, j(e_eyes[0]), j(e_eyes[1]), j(e_mouth), j(e_nose), j(e_brows[0]), j(e_brows[1]), j(e_sweat), j(e_blush[0]), j(e_blush[1]), j(e_QM)].join(';');
+    ge('savecode').value = code;
 };
