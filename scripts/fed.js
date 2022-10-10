@@ -1,10 +1,10 @@
 var ats = [['none', 'base1', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7', 'base8'],
-           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'eyes3', 'eyes4', 'eyes5l', 'eyes5r', 'eyes6'],
-           ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5', 'mouth6', 'mouth7', 'mouth8', 'mouth9', 'mouth10'],
-           ['none', 'brows1l', 'brows1r', 'brows2l', 'brows2r', 'brows3l', 'brows3r'],
+           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'dot', 'eyes4', 'eyes5l', 'eyes5r', 'eyes6', 'shortline', 'eyes7', 'eyes8', 'eyes9l', 'eyes9r'],
+           ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5', 'mouth6', 'mouth7', 'mouth8', 'shortline', 'mouth10', 'dot', 'mouth11', 'mouth12', 'mouth13', 'mouth14', 'mouth15'],
+           ['none', 'brows1l', 'brows1r', 'brows2l', 'brows2r', 'brows3l', 'brows3r', 'brows4', 'shortline'],
            ['none', 'sweat1', 'sweat2', 'sweat3', 'sweat4'],
            ['none', 'blush'],
-           ['none', 'QM', 'sleep'],
+           ['none', 'QM', 'sleep', 'cry', 'sunglass', 'think'],
            ['none', 'nose1']
           ],
     ge = (id) => document.getElementById(id),
@@ -238,16 +238,36 @@ function setNose(danose) {
 function load() {
     code = ge('savecode').value.split(';');
     rangeincr = Number(code[0]);
-    ge('incRange').value = Boolean(rangeincr);
+    ge('incRange').checked = Boolean(rangeincr);
     e_base = Number(code[1]);
-    var getprop = (n) => code[n] != '' ? [Number(code[n].split(':')[0]), Number(code[n].split(':')[1]), Number(code[n].split(':')[2])] : [0, 0, 0];
+    var getprop = (n) => code[n] != '' ? [parseFloat(code[n].split(':')[0]), parseFloat(code[n].split(':')[1]), parseFloat(code[n].split(':')[2])] : [0, 0, 0];
     e_eyes = [getprop(2), getprop(3)];
+    getprop(2)[0]?ge('lefteyex').value = getprop(2)[1]:0;
+    getprop(2)[0]?ge('lefteyey').value = getprop(2)[2]:0;
+    getprop(3)[0]?ge('righteyex').value = getprop(3)[1]:0;
+    getprop(3)[0]?ge('righteyey').value = getprop(3)[2]:0;
     e_mouth = getprop(4);
+    getprop(4)[0]?ge('mouthx').value = getprop(4)[1]:0;
+    getprop(4)[0]?ge('mouthy').value = getprop(4)[2]:0;
     e_nose = getprop(5);
+    getprop(5)[0]?ge('nosex').value = getprop(5)[1]:0;
+    getprop(5)[0]?ge('nosey').value = getprop(5)[2]:0;
     e_brows = [getprop(6), getprop(7)];
+    getprop(6)[0]?ge('leftbrowx').value = getprop(6)[1]:0;
+    getprop(6)[0]?ge('leftbrowy').value = getprop(6)[2]:0;
+    getprop(7)[0]?ge('rightbrowx').value = getprop(7)[1]:0;
+    getprop(7)[0]?ge('rightbrowy').value = getprop(7)[2]:0;
     e_sweat = getprop(8);
+    getprop(8)[0]?ge('sweatx').value = getprop(8)[1]:0;
+    getprop(8)[0]?ge('sweaty').value = getprop(8)[2]:0;
     e_blush = [getprop(9), getprop(10)];
+    getprop(9)[0]?ge('leftblushx').value = getprop(9)[1]:0;
+    getprop(9)[0]?ge('leftblushy').value = getprop(9)[2]:0;
+    getprop(10)[0]?ge('rightblushx').value = getprop(10)[1]:0;
+    getprop(10)[0]?ge('rightblushy').value = getprop(10)[2]:0;
     e_QM = getprop(11);
+    getprop(11)[0]?ge('QMx').value = getprop(11)[1]:0;
+    getprop(11)[0]?ge('QMy').value = getprop(11)[2]:0;
     render();
 };
 function save() {
