@@ -123,8 +123,8 @@ function incrange(cb) {
         ge('nosey').min = -63;
         ge('nosex').max = 63;
         ge('nosey').max = 63;
-        ge('nosex').value = Math.min(Math.max(Math.round(Number(ge('nosex').value)/8), -7), 7);
-        ge('nosey').value = Math.min(Math.max(Math.round(Number(ge('nosey').value)/8), -7), 7);
+        ge('nosex').value = Math.min(Math.max(Math.round(Number(ge('nosex').value)*8), -7), 7);
+        ge('nosey').value = Math.min(Math.max(Math.round(Number(ge('nosey').value)*8), -7), 7);
         e_nose[1] = ge('nosex').value;
         e_nose[2] = ge('nosey').value;
     } else {
