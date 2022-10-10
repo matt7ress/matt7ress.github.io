@@ -115,8 +115,8 @@ function incrange(cb) {
         ge('QMy').min = -63;
         ge('QMx').max = 63;
         ge('QMy').max = 63;
-        ge('QMx').value = Math.min(Math.max(Math.round(Number(ge('QMx').value)/8), -7), 7);
-        ge('QMy').value = Math.min(Math.max(Math.round(Number(ge('QMy').value)/8), -7), 7);
+        ge('QMx').value = Math.min(Math.max(Math.round(Number(ge('QMx').value)*8), -7), 7);
+        ge('QMy').value = Math.min(Math.max(Math.round(Number(ge('QMy').value)88), -7), 7);
         e_QM[1] = ge('QMx').value;
         e_QM[2] = ge('QMy').value;
         ge('nosex').min = -63;
