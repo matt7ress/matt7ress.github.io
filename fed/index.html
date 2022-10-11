@@ -73,6 +73,7 @@
             <img id="cry" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAABQCAMAAADm3o3WAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJUExURZnT/2Oq3QAAAJ84ve0AAAADdFJOU///ANfKDUEAAAAJcEhZcwAAAEwAAABMAc4z3LoAAABeSURBVGhD7c6hEQAxDAPB+PsvOkRjYBjiB3tQQLPnG51R5udy02XuAAAAAAAAAP4HqFHm53LTZe4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPYB2dcCAAAAAAAAWAZUXaVOPgFbOFg4AAAAAElFTkSuQmCC">
             <img id="sunglass" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAAgCAYAAADaInAlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAEwAAABMAc4z3LoAAACFSURBVHhe7dqxDYAwDADBwCCp2X8aahaBhgmgQOjvmriN9HLlZc7tHGSt90uUAOIEECeAOAHECSBOAHECiBNAnADiBBAngDgBxAkgTgBxn98DHMe+3OMjf79nePv/t2yAOAHECSBOAHECiBNAnADiBBAngDgBxAkgTgBxAogTQJwA0sa4AEe3CaIWKhX/AAAAAElFTkSuQmCC">
             <img id="think" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABACAYAAACNx/A2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAEwAAABMAc4z3LoAAAC9SURBVHhe7dqxEcIwEABBiQaoys24IJqhKirAiSpgAw+j2+QV33z0o/l5Hd8Bnud7rueWHmvmRwVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUR8D9xdG4gKiAqICogKiAqICogKiAqICogKiAqICogKiAqI/v4eePf/xDYQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBWQjHEBbTwLSezNcNQAAAAASUVORK5CYII=">
+            <img id="upvote" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAABACAMAAABr/gR0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURfGWRQAAAIklCcwAAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAFNJREFUSEvtysEJwDAAA7F0/6X7ERhKTRawnsedr+fCFnplC72yhV7ZQq9soVe20Ctb6JUt9MoWemULvbKFXtlCr2yhV7bQK1volW1mZmZmfp3zAm17AgFS97uRAAAAAElFTkSuQmCC">
             <img id="nose1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAADUExURboaNP4qSHIAAAAJcEhZcwAAAE4AAABOAbHNHzMAAAANSURBVBjTYxhUgIEBAACQAAFpMsJRAAAAAElFTkSuQmCC">
         </div>
         <center><b><h1>
@@ -218,12 +219,17 @@
             <option value="1">Blush</option>
         </select> <button onclick="randomVal(['rightblush', 5, setBlush, 1])">Random</button> | Position: <input id="rightblushx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=6 oninput="setBlush(e_blush[1][0], 1)"> <input id="rightblushy" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=4 oninput="setBlush(e_blush[1][0], 1)"> <button onclick="randomPos(['rightblush', setBlush, e_blush[1], 1])">Random</button><br>
         Extras: <select id="extrassel" onchange="setQM(Number(this.value))">
-            <option value="0">None</option>
-            <option value="1">Question Mark</option>
-            <option value="2">Sleeping</option>
-            <option value="3">Crying</option>
-            <option value="4">Sunglass</option>
-            <option value="5">Think Hand</option>
+            <optgroup label="Official">
+                <option value="0">None</option>
+                <option value="1">Question Mark</option>
+                <option value="2">Sleeping</option>
+                <option value="3">Crying</option>
+                <option value="4">Sunglass</option>
+                <option value="5">Think Hand</option>
+            </optgroup>
+            <optgroup label="Unofficial">
+                <option value="6">Upvote</option>
+            </optgroup>
         </select> <button onclick="randomVal(['extras', 6, setQM])">Random</button> | Position: <input id="QMx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setQM(e_QM[0])"> <input id="QMy" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=0 oninput="setQM(e_QM[0])"> <button onclick="randomPos(['QM', setQM, e_QM])">Random</button><br>
 
 

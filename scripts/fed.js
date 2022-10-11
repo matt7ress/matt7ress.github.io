@@ -4,7 +4,7 @@ var ats = [['none', 'base1', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7
            ['none', 'brows1l', 'brows1r', 'brows2l', 'brows2r', 'brows3l', 'brows3r', 'brows4', 'shortline'],
            ['none', 'sweat1', 'sweat2', 'sweat3', 'sweat4'],
            ['none', 'blush'],
-           ['none', 'QM', 'sleep', 'cry', 'sunglass', 'think'],
+           ['none', 'QM', 'sleep', 'cry', 'sunglass', 'think', 'upvote'],
            ['none', 'nose1']
           ],
     ge = (id) => document.getElementById(id),
