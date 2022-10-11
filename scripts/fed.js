@@ -390,3 +390,7 @@ function randomPos(el) {
     };
     render();
 };
+function reset() {
+    ge('savecode').value = '0;1;4:0:3;4:3:3;2:1:5;;;;1:4:1;;;';
+    load();
+};
