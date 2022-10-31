@@ -241,6 +241,7 @@ function load() {
     ge('incRange').checked = Boolean(rangeincr);
     e_base = parseFloat(code[1]);
     var getprop = (n) => code[n] != '' ? [parseFloat(code[n].split(':')[0]), parseFloat(code[n].split(':')[1]), parseFloat(code[n].split(':')[2])] : [0, 0, 0];
+    ge('basesel').value = getprop(1)[0];
     e_eyes = [getprop(2), getprop(3)];
     ge('lefteyesel').value = getprop(2)[0];
     getprop(2)[0]?ge('lefteyex').value = getprop(2)[1]:0;
