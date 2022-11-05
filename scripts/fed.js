@@ -9,7 +9,7 @@ var ats = [['none', 'base1', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7
           ],
     ge = (id) => document.getElementById(id),
     rangeincr = 0,
-    code = '0;1;4:0:3;4:3:3;2:1:5;;;;1:4:1;;;;'.split(';'),
+    code = '0;1;4:0:3;4:3:3;2:1:5;;;;1:4:1;;;'.split(';'),
     e_base = 1,
     e_eyes = [[4, 0, 3], [4, 3, 3]],
     e_mouth = [2, 1, 5],

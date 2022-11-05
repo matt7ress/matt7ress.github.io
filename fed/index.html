@@ -6,10 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fancade Emoji Designer</title>
         <style>button{font-family:monospace}input{font-family:monospace}</style>
+        <script src="/scripts/fed.js"></script>
         <link rel="icon" type="image/x-icon" href="/fed/favicon.ico">
     </head>
     <body style="font-family:monospace">
         <div style="display:none">
+            <!--
             <img id="none" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAANSURBVBhXY2BgYGAAAAAFAAGKM+MAAAAAAElFTkSuQmCC">
             <img id="base1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf7MTgAAAN3R63IAAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAGxJREFUeF7t2jEKACEMRUFz/0tv80mxIMIuosVMKSR5B3DUwvgpa6YECBAgQIAAAfcFZG6bnGkCBAgQIECAgPMBAAAAAAAAAAD5R9DyvE3ONAECBAgQIEDAfQFvmfssa6YECBAgQIAAAYcDqh5XLQwB9jAAawAAAABJRU5ErkJggg==">
             <img id="base2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf7MTgAAAN3R63IAAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAARFJREFUeF7t2TFOREEQQ0H2/pcmKXXmACEPBK6w5d03+f/6/NDXL/mbswfsAXvAHrAH7AF7wP9/gN/16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajE5n16ERmPTqRWY9OZNajc5zf0T3O7+ge53d0j/M7usf5Hd3j/I7ucX5H9zi/o3uc39E9zu/oHud3dI/zO7rH+R3d4/yO7nF+R/c4z8zMzMzMzMzMzMzMvOM7xXGukTl7wB6wB+wBe8AesAf88QM+n29MrwsBRk2XJQAAAABJRU5ErkJggg==">
@@ -86,11 +88,12 @@
             <img id="think" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABACAYAAACNx/A2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAEwAAABMAc4z3LoAAAC9SURBVHhe7dqxEcIwEABBiQaoys24IJqhKirAiSpgAw+j2+QV33z0o/l5Hd8Bnud7rueWHmvmRwVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUR8D9xdG4gKiAqICogKiAqICogKiAqICogKiAqICogKiAqI/v4eePf/xDYQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBWQjHEBbTwLSezNcNQAAAAASUVORK5CYII=">
             <img id="upvote" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAABACAMAAABr/gR0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURfGWRQAAAIklCcwAAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAFNJREFUSEvtysEJwDAAA7F0/6X7ERhKTRawnsedr+fCFnplC72yhV7ZQq9soVe20Ctb6JUt9MoWemULvbKFXtlCr2yhV7bQK1volW1mZmZmfp3zAm17AgFS97uRAAAAAElFTkSuQmCC">
             <img id="nose1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAADUExURboaNP4qSHIAAAAJcEhZcwAAAE4AAABOAbHNHzMAAAANSURBVBjTYxhUgIEBAACQAAFpMsJRAAAAAElFTkSuQmCC">
+            -->
         </div>
         <center><b><h1>
             Fancade Emoji Designer
         </h1><h3>
-            Made by Matrus | Release v1.0
+            Made by Matrus | Release v1.1
         </h3></b></center>
         Save code: <input style="width:765px" id="savecode" placeholder="Paste your code here" oninput="load()" value="0;1;4:0:3;4:3:3;2:1:5;;;;1:4:1;;;"><br>
         <canvas style="display:none" id="canv" width=128 height="128"></canvas>
@@ -264,8 +267,5 @@
                 <option value="6">Upvote</option>
             </optgroup>
         </select> <button onclick="randomVal(['extras', 6, setQM])">Random</button> | Position: <input id="QMx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setQM(e_QM[0])"> <input id="QMy" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=0 oninput="setQM(e_QM[0])"> <button onclick="randomPos(['QM', setQM, e_QM])">Random</button><br>
-
-
-        <script src="/scripts/fed.js"></script>
     </body>
 </html>
