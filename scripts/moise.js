@@ -31,7 +31,41 @@ let table = {
     "ь": "ыи",
     "э": "аб",
     "ю": "об",
-    "я": "аъ"
+    "я": "аъ",
+    "0": "цн",
+    "1": "го",
+    "2": "кс",
+    "3": "аз",
+    "4": "се",
+    "5": "бо",
+    "6": "ай",
+    "7": "бу",
+    "8": "ка",
+    "9": "вв",
+    "!": "кв",
+    "?": "во",
+    ".": "дя",
+    ",": "пр",
+    ":": "ма",
+    ";": "тя",
+    '"': "рф",
+    "'": "ед",
+    "<": "де",
+    ">": "нь",
+    "=": "те",
+    "*": "ой",
+    "$": "бл",
+    "#": "ни",
+    "@": "яд",
+    "%": "ко",
+    "^": "шк",
+    "&": "по",
+    "-": "нн",
+    "(": "су",
+    ")": "пч",
+    "+": "ик",
+    "_": "фи",
+    "/": "нч"
 };
 let revtable = {
     "въ": "а",
@@ -66,22 +100,55 @@ let revtable = {
     "ыи": "ь",
     "аб": "э",
     "об": "ю",
-    "аъ": "я"
+    "аъ": "я",
+    "цн": "0",
+    "го": "1",
+    "кс": "2",
+    "аз": "3",
+    "се": "4",
+    "бо": "5",
+    "ай": "6",
+    "бу": "7",
+    "ка": "8",
+    "вв": "9",
+    "кв": "!",
+    "во": "?",
+    "дя": ".",
+    "пр": ",",
+    "ма": ":",
+    "тя": ";",
+    "рф": '"',
+    "ед": "'",
+    "де": "<",
+    "нь": ">",
+    "те": "=",
+    "ой": "*",
+    "бл": "$",
+    "ни": "#",
+    "яд": "@",
+    "ко": "%",
+    "шк": "^",
+    "по": "&",
+    "нн": "-",
+    "су": "(",
+    "пч": ")",
+    "ик": "+",
+    "фи": "_",
+    "нч": "/"
 };
 const isLowerCase = str => str == str.toLowerCase() && str != str.toUpperCase();
 function to(string) {
     let res = '';
     for(let i = 0; i < string.length; ++i) {
-        res += table[string[i]]?(isLowerCase(string[i])?table[string[i]]:table[string[i]].toUpperCase()):string[i];
+        res += table[string[i].toLowerCase()]?(isLowerCase(string[i])?table[string[i]]:table[string[i].toLowerCase()].toUpperCase()):string[i];
     };
     return res;
 };
 function from(string) {
-    string = string.toLowerCase();
     let res = '';
     for(let i = 0; i < string.length; ++i) {
-        if(revtable[string.slice(i,i+2)]) {
-            res += isLowerCase(string.slice(i,i+2))?revtable[string.slice(i,i+2)]:revtable[string.slice(i,i+2)].toUpperCase();
+        if(revtable[string.slice(i,i+2).toLowerCase()]) {
+            res += isLowerCase(string.slice(i,i+2))?revtable[string.slice(i,i+2)]:revtable[string.slice(i,i+2).toLowerCase()].toUpperCase();
             ++i
         } else {
             res += string[i];
