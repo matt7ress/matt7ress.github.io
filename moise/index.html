@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Moise Translator</title>
+        <script src="scripts/moise.js"></script>
+    </head>
+    <body>
+        <h1 style="text-align:center">Moise Translator</h1>
+        <textarea id="in" placeholder="To translate" style="width:400px;height:175px"></textarea> <button onclick="document.getElementById('out').value=to(document.getElementById('in').value)">Translate</button><br>
+        <textarea id="out" placeholder="Translated" style="width:400px;height:175px"></textarea> <button onclick="document.getElementById('in').value=from(document.getElementById('out').value)">Translate</button>
+    </body>
+</html>
