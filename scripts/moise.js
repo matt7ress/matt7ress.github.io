@@ -104,8 +104,7 @@
         "\\": "бк",
         "|": "лн",
         "№": "нм",
-        "₽": "сд",
-        " ": "рв"
+        "₽": "сд"
     }
 ];
 let revtable = {
@@ -211,8 +210,7 @@ let revtable = {
     "бк": "\\",
     "лн": "|",
     "нм": "№",
-    "сд": "₽",
-    "рв": " "
+    "сд": "₽"
 };
 const isLowerCase = str => str == str.toLowerCase() && str != str.toUpperCase();
 function to(string) {
