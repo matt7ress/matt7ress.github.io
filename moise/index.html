@@ -9,7 +9,10 @@
     </head>
     <body>
         <h1 style="text-align:center">Moise Translator</h1>
-        <textarea id="in" placeholder="To translate" style="width:400px;height:175px"></textarea> <button onclick="document.getElementById('out').value=to(document.getElementById('in').value)">Translate</button><br>
-        <textarea id="out" placeholder="Translated" style="width:400px;height:175px"></textarea> <button onclick="document.getElementById('in').value=from(document.getElementById('out').value)">Translate</button>
+        <textarea id="in" placeholder="To translate" style="width:400px;height:175px"></textarea><hr>
+        <button onclick="document.getElementById('out').value=to(document.getElementById('in').value)">Translate to moise</button>
+        <button onclick="document.getElementById('in').value=from(document.getElementById('out').value)">Translate from moise</button>
+        <input id="syms" type="checkbox" checked> Translate symbols and numbers<hr>
+        <textarea id="out" placeholder="Translated" style="width:400px;height:175px"></textarea>
     </body>
 </html>
