@@ -68,6 +68,7 @@
             <img id="mouth18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgBAMAAABQs2O3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJUExURenY0SstMfn19lYXMCIAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAeSURBVDjLY4ABQTTAgA5GFYwIBUoEwKiCEaRASQkAw0ZVAWEaq5QAAAAASUVORK5CYII=">
             <img id="mouth19" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAAgCAYAAADtwH1UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAACHSURBVGhD7dmxEYAgDEDRxN10Ex0KN9HdxIYJSPHP87+GNGn4R0Xua/YoaNczpn86tmVMc2rbKjMAzAAwA8AMADMAzAAwA8AMADMAzAAwA8AMADMAzACwHOe06n/C1513L92hLwBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBUBEvC0AI6Ts5y6UAAAAASUVORK5CYII=">
             <img id="mouth20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAwBAMAAABTZWEsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURWVFAd1OWSztusIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAbSURBVDjLYxgFo2AUjAJcQJAAGFUwghQICgIAGD0iAR8fUYoAAAAASUVORK5CYII=">
+            <img id="mouth21" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAAgCAYAAADaInAlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACRSURBVHhe7dq7DcJAFEVB47bIXQeRi3IpxNTFT9oKlgBZZya6yWZHL9rL62PhtPZtHWvOb685PQHECSBOAHECiBNAnADiBBAngDgBxAkgTgBxAogTQJwA4r7/Aa5jT9m39TEmf3Dcn7cxp7gAcQKIE0CcAOIEECeAOAHECSBOAHECiBNAnADiBBAngDgBpC3LG+2UDEV/YdprAAAAAElFTkSuQmCC">
             <img id="brows1l" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABASURBVFhH7dWhFQAgCEBBcDdHcf8RtDCBBMr9AvHeI5DR7Oy8tX61ao4FAAAAAAAAkN1/3s0JAAAAAAAAhgERD9n7A5MSuQsOAAAAAElFTkSuQmCC">
             <img id="brows1r" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABESURBVFhH7dahFQAgCEBBcDdHcSpHcTgtTiDBcr9AvPco5Oi5o9BcO+/6VLvzWwAAAAAAAADlf6CaEwAAAAAAAHwGRBxW4wXp6EUsKwAAAABJRU5ErkJggg==">
             <img id="brows2l" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABHSURBVFhH7daxEQAgCAQwcDdHcSpHcThtnEAKm3wDZe6+gIxiRs9916e0O78FAAAAAAAAIKv3fK5d+ilUAAAAAAAA8BkQcQAV5gXp+H5h/QAAAABJRU5ErkJggg==">
@@ -94,7 +95,7 @@
         <center><b><h1>
             Fancade Emoji Designer
         </h1><h3>
-            Made by Matrus | Release v1.0.1
+            Made by Matrus | Release v1.0.2
         </h3></b></center>
         Save code: <input style="width:765px" id="savecode" placeholder="Paste your code here" oninput="load()" value="0;1;4:0:3;4:3:3;2:1:5;;;;1:4:1;;;"><br>
         <canvas style="display:none" id="canv" width=128 height="128"></canvas>
@@ -203,6 +204,7 @@
                 <option value="18">Creeper Mouth</option>
                 <option value="19">Fox Mouth</option>
                 <option value="21">Panic Mouth</option>
+                <option value="22">Elated Troll Mouth</option>
             </optgroup>
         </select> <button onclick="randomVal(['mouth', 2, setMouth])">Random</button> | Position: <input id="mouthx" placeholder="X Pos" style="width:80px" type="number" min=-7 max=7 value=1 oninput="setMouth(e_mouth[0])"> <input id="mouthy" placeholder="Y Pos" style="width:80px" type="number" min=-7 max=7 value=5 oninput="setMouth(e_mouth[0])"> <button onclick="randomPos(['mouth', setMouth, e_mouth])">Random</button><br>
         Nose: <select id="nosesel" onchange="setNose(Number(this.value))">
