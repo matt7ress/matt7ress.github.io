@@ -1,15 +1,17 @@
-var ats = [['none', 'base1', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7', 'base8', 'base9', 'base10', 'base11', 'base12', 'base13', 'base14', 'base15', 'base16', 'base17', 'base18'],
-           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'dot', 'eyes4', 'eyes5l', 'eyes5r', 'eyes6', 'shortline', 'eyes7', 'eyes8', 'eyes9l', 'eyes9r', 'eyes10', 'eyes11', 'eyes12', 'eyes13', 'eyes14'],
+// @@@200@@@text/javascript@@@
+var ats = [['none', 'base1', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7', 'base8', 'base9', 'base10', 'base11', 'base12', 'base13', 'base14', 'base15', 'base16', 'base17', 'base18', 'base19'],
+           ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'dot', 'eyes4', 'eyes5l', 'eyes5r', 'eyes6', 'shortline', 'eyes7', 'eyes8', 'eyes9l', 'eyes9r', 'eyes10', 'eyes11', 'eyes12', 'eyes13', 'eyes14', 'eyes15l', 'eyes15r', 'eyes16'],
            ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5', 'mouth6', 'mouth7', 'mouth8', 'shortline', 'mouth10', 'dot', 'mouth11', 'mouth12', 'mouth13', 'mouth14', 'mouth15', 'mouth16', 'mouth17', 'mouth18', 'mouth19', 'mouth20', 'mouth21'],
            ['none', 'brows1l', 'brows1r', 'brows2l', 'brows2r', 'brows3l', 'brows3r', 'brows4', 'shortline', 'brows5l', 'brows5r'],
            ['none', 'sweat1', 'sweat2', 'sweat3', 'sweat4'],
-           ['none', 'blush'],
-           ['none', 'QM', 'sleep', 'cry', 'sunglass', 'think', 'upvote', 'blood'],
-           ['none', 'nose1']
+           ['none', 'blush', 'biggerblush'],
+           ['none', 'QM', 'sleep', 'cry', 'sunglass', 'blood'],
+           ['none', 'nose1'],
+           ['none', 'thinkleft', 'thinkright', 'upvoteleft', 'upvoteright', 'shyleft', 'shyright']
           ],
     ge = (id) => document.getElementById(id),
     rangeincr = 0,
-    code = '0;1;4:0:3;4:3:3;2:1:5;;;;1:4:1;;;'.split(';'),
+    code = '0;1;4:0:3;4:3:3;2:1:5;;;;1:4:1;;;;;'.split(';'),
     e_base = 1,
     e_eyes = [[4, 0, 3], [4, 3, 3]],
     e_mouth = [2, 1, 5],
@@ -18,6 +20,7 @@ var ats = [['none', 'base1', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7
     e_blush = [[0, 0, 4], [0, 6, 4]],
     e_QM = [0, 4, 0],
     e_nose = [0, 3.5, 4.5],
+    e_hands = [[0, 0, 0], [0, 0, 0]],
     /** @type {CanvasRenderingContext2D} */
     ctx = ge('canv').getContext('2d');
 function render() {
@@ -33,6 +36,8 @@ function render() {
     ctx.drawImage(ge(ats[3][e_brows[0][0]]), (e_brows[0][1])*(16/(7*rangeincr+1)), (e_brows[0][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[3][e_brows[1][0]]), (e_brows[1][1])*(16/(7*rangeincr+1)), (e_brows[1][2])*(16/(7*rangeincr+1)));
     ctx.drawImage(ge(ats[6][e_QM[0]]), (e_QM[1])*(16/(7*rangeincr+1)), (e_QM[2])*(16/(7*rangeincr+1)));
+    ctx.drawImage(ge(ats[8][e_hands[0][0]]), (e_hands[0][1])*(16/(7*rangeincr+1)), (e_hands[0][2])*(16/(7*rangeincr+1)));
+    ctx.drawImage(ge(ats[8][e_hands[1][0]]), (e_hands[1][1])*(16/(7*rangeincr+1)), (e_hands[1][2])*(16/(7*rangeincr+1)));
     ge('img').src = ge('canv').toDataURL('image/png');
     save();
 };
@@ -127,6 +132,22 @@ function incrange(cb) {
         ge('nosey').value = Math.min(Math.max(Math.round(parseFloat(ge('nosey').value)*8), -7), 7);
         e_nose[1] = ge('nosex').value;
         e_nose[2] = ge('nosey').value;
+        ge('lefteyex').min = -63;
+        ge('lefteyey').min = -63;
+        ge('lefteyex').max = 63;
+        ge('lefteyey').max = 63;
+        ge('lefteyex').value = Math.min(Math.max(parseFloat(ge('lefteyex').value)*8, -63), 63);
+        ge('lefteyey').value = Math.min(Math.max(parseFloat(ge('lefteyey').value)*8, -63), 63);
+        e_eyes[0][1] = ge('lefteyex').value;
+        e_eyes[0][2] = ge('lefteyey').value;
+        ge('righthandx').min = -63;
+        ge('righthandy').min = -63;
+        ge('righthandx').max = 63;
+        ge('righthandy').max = 63;
+        ge('righthandx').value = Math.min(Math.max(parseFloat(ge('righthandx').value)*8, -63), 63);
+        ge('righthandy').value = Math.min(Math.max(parseFloat(ge('righthandy').value)*8, -63), 63);
+        e_hands[1][1] = ge('righthandx').value;
+        e_hands[1][2] = ge('righthandy').value;
     } else {
         ge('lefteyex').min = -7;
         ge('lefteyey').min = -7;
@@ -208,6 +229,22 @@ function incrange(cb) {
         ge('nosey').value = Math.min(Math.max(Math.round(parseFloat(ge('nosey').value)/8), -7), 7);
         e_nose[1] = ge('nosex').value;
         e_nose[2] = ge('nosey').value;
+        ge('lefthandx').min = -7;
+        ge('lefthandy').min = -7;
+        ge('lefthandx').max = 7;
+        ge('lefthandy').max = 7;
+        ge('lefthandx').value = Math.min(Math.max(Math.round(parseFloat(ge('lefthandx').value)/8), -7), 7);
+        ge('lefthandy').value = Math.min(Math.max(Math.round(parseFloat(ge('lefthandy').value)/8), -7), 7);
+        e_hands[0][1] = ge('lefthandx').value;
+        e_hands[0][2] = ge('lefthandy').value;
+        ge('righthandx').min = -7;
+        ge('righthandy').min = -7;
+        ge('righthandx').max = 7;
+        ge('righthandy').max = 7;
+        ge('righthandx').value = Math.min(Math.max(Math.round(parseFloat(ge('righthandx').value)/8), -7), 7);
+        ge('righthandy').value = Math.min(Math.max(Math.round(parseFloat(ge('righthandy').value)/8), -7), 7);
+        e_hands[1][1] = ge('righthandx').value;
+        e_hands[1][2] = ge('righthandy').value;
     };
     render();
 };
@@ -233,6 +270,10 @@ function setQM(daqm) {
 };
 function setNose(danose) {
     e_nose = [danose, parseFloat(ge('nosex').value), parseFloat(ge('nosey').value)];
+    render();
+};
+function setHands(hand, side) {
+    e_hands = side ? [e_hands[0], [hand, parseFloat(ge('righthandx').value), parseFloat(ge('righthandy').value)]] : [[hand, parseFloat(ge('lefthandx').value), parseFloat(ge('lefthandy').value)], e_hands[1]];
     render();
 };
 function load() {
@@ -279,11 +320,18 @@ function load() {
     ge('extrassel').value = getprop(11)[0];
     getprop(11)[0]?ge('QMx').value = getprop(11)[1]:0;
     getprop(11)[0]?ge('QMy').value = getprop(11)[2]:0;
+    e_hand = [getprop(9), getprop(10)];
+    ge('lefthandsel').value = getprop(9)[0];
+    getprop(9)[0]?ge('lefthandx').value = getprop(9)[1]:0;
+    getprop(9)[0]?ge('lefthandy').value = getprop(9)[2]:0;
+    ge('righthandsel').value = getprop(10)[0];
+    getprop(10)[0]?ge('righthandx').value = getprop(10)[1]:0;
+    getprop(10)[0]?ge('righthandy').value = getprop(10)[2]:0;
     render();
 };
 function save() {
     var j = (x) => x[0] == 0 ? [] : x.join(':');
-    code = [rangeincr, e_base, j(e_eyes[0]), j(e_eyes[1]), j(e_mouth), j(e_nose), j(e_brows[0]), j(e_brows[1]), j(e_sweat), j(e_blush[0]), j(e_blush[1]), j(e_QM)].join(';');
+    code = [rangeincr, e_base, j(e_eyes[0]), j(e_eyes[1]), j(e_mouth), j(e_nose), j(e_brows[0]), j(e_brows[1]), j(e_sweat), j(e_blush[0]), j(e_blush[1]), j(e_QM), j(e_hands[0]), j(e_hands[1])].join(';');
     ge('savecode').value = code;
 };
 function randomVal(el) {
@@ -321,6 +369,12 @@ function randomVal(el) {
         val = Math.floor(Math.random() * ats[6].length);
         ge('extrassel').value = val;
         setQM(val);
+        val = Math.floor(Math.random() * ats[5].length);
+        ge('lefthandsel').value = val;
+        setHands(val, 0);
+        val = Math.floor(Math.random() * ats[5].length);
+        ge('righthandsel').value = val;
+        setHands(val, 1);
     } else {
         var val = Math.floor(Math.random() * ats[el[1]].length);
         ge(`${el[0]}sel`).value = val;
@@ -383,6 +437,16 @@ function randomPos(el) {
         val = grn();
         ge('QMy').value = val;
         setQM(e_QM[0]);
+        val = grn();
+        ge('lefthandx').value = val;
+        val = grn();
+        ge('lefthandy').value = val;
+        setHands(e_hands[0][0], 0);
+        val = grn();
+        ge('righthandx').value = val;
+        val = grn();
+        ge('righthandy').value = val;
+        setHands(e_hands[1][0], 1);
     } else {
         ge(`${el[0]}x`).value = val;
         val = grn();
