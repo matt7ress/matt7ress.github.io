@@ -1,11 +1,10 @@
-// @@@200@@@text/javascript@@@
 var ats = [['none', 'base1', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7', 'base8', 'base9', 'base10', 'base11', 'base12', 'base13', 'base14', 'base15', 'base16', 'base17', 'base18', 'base19'],
            ['none', 'eyes1l', 'eyes1r', 'eyes2l', 'eyes2r', 'dot', 'eyes4', 'eyes5l', 'eyes5r', 'eyes6', 'shortline', 'eyes7', 'eyes8', 'eyes9l', 'eyes9r', 'eyes10', 'eyes11', 'eyes12', 'eyes13', 'eyes14', 'eyes15l', 'eyes15r', 'eyes16'],
-           ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5', 'mouth6', 'mouth7', 'mouth8', 'shortline', 'mouth10', 'dot', 'mouth11', 'mouth12', 'mouth13', 'mouth14', 'mouth15', 'mouth16', 'mouth17', 'mouth18', 'mouth19', 'mouth20', 'mouth21'],
+           ['none', 'mouth1', 'mouth2', 'mouth3', 'mouth4', 'mouth5', 'mouth6', 'mouth7', 'mouth8', 'shortline', 'mouth10', 'dot', 'mouth11', 'mouth12', 'mouth13', 'mouth14', 'mouth15', 'mouth16', 'mouth17', 'mouth18', 'mouth19', 'mouth20', 'mouth21', 'wellactually'],
            ['none', 'brows1l', 'brows1r', 'brows2l', 'brows2r', 'brows3l', 'brows3r', 'brows4', 'shortline', 'brows5l', 'brows5r'],
            ['none', 'sweat1', 'sweat2', 'sweat3', 'sweat4'],
            ['none', 'blush', 'biggerblush'],
-           ['none', 'QM', 'sleep', 'cry', 'sunglass', 'blood'],
+           ['none', 'QM', 'sleep', 'cry', 'sunglass', 'blood', 'nerddd'],
            ['none', 'nose1'],
            ['none', 'thinkleft', 'thinkright', 'upvoteleft', 'upvoteright', 'shyleft', 'shyright']
           ],
