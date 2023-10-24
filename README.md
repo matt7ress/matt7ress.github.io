@@ -1,9 +1,16 @@
 # mat1rus.github.io
 This is my GitHub pages ig
 ---
-I do dumb things here, proof:
-- 1000-7 game
-- El gato
-- Kafif Backrooms
+im bored i just make stuff and make stuff and make stuff
 
-and other
+and make stuff
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+and make stuff
+
+and make stuff
