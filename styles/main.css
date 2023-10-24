@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'DrukWideBold';
+    src: url('../fonts/DrukWideBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PoppinsMedium';
+    src: url('../fonts/PoppinsMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+  margin: 0px;
+  background: rgb(14,14,15);
+  background: linear-gradient(201deg, rgba(14,14,15,1) 0%, rgba(50,53,62,1) 100%);
+  height: 1px;
+}
+
+.header {
+  background: rgb(2,0,36);
+  background: linear-gradient(151deg, rgba(2,0,36,1) 0%, rgba(7,7,27,1) 35%, rgba(27,36,68,1) 100%);
+  background-size: 200%;
+  padding: 25vh 0 25vh 0;
+  color: rgb(197,197,217);
+  border-radius: 0 0 25px 25px;
+  margin-bottom: 30px;
+  animation: GradMove 10s infinite;
+}
+
+.image {
+  position: absolute;
+  width: 480px;
+  height: 299px;
+  border-radius: 15px;
+  transition: all 0.5s;
+  box-shadow: 0px 0px 23px 5px rgba(35,35,35,0.5);
+}
+
+.image:hover {
+  transform: scale(1.075);
+  transition: all 0.5s;
+  box-shadow: 0px 0px 55px 20px #000;
+}
+
+.txt-img-right {
+  font-size: 20px;
+  font-family: 'PoppinsMedium', sans-serif;
+  color: rgb(214,214,227);
+  background: linear-gradient(129deg, rgba(78,78,88,0.5) 0%, rgba(58,61,73,0.5) 36%, rgba(59,62,74,0.5) 52%, rgba(50,53,62,0.5) 100%);
+  border-radius: 15px;
+  height: 300px;
+  padding: 12px 500px 8px 12px;
+  margin: 0 10px 30px 10px;
+}
+
+.txt-img-right > .image {
+  margin: 0 0 0 calc(100% - 520px);
+}
+
+.txt-img-left {
+  font-size: 20px;
+  font-family: 'PoppinsMedium', sans-serif;
+  color: rgb(214,214,227);
+  background: linear-gradient(129deg, rgba(78,78,88,0.5) 0%, rgba(58,61,73,0.5) 36%, rgba(59,62,74,0.5) 52%, rgba(50,53,62,0.5) 100%);
+  border-radius: 15px;
+  height: 300px;
+  padding: 12px 8px 8px 500px;
+  margin: 0 10px 30px 10px;
+}
+
+.txt-img-left > .image {
+  left: 20px;
+  margin: 0;
+}
+
+.txt {
+  font-size: 20px;
+  font-family: 'PoppinsMedium', sans-serif;
+  color: rgb(214,214,227);
+  background: linear-gradient(129deg, rgba(78,78,88,0.5) 0%, rgba(58,61,73,0.5) 36%, rgba(59,62,74,0.5) 52%, rgba(50,53,62,0.5) 100%);
+  border-radius: 15px;
+  height: 300px;
+  padding: 12px 8px 8px 12px;
+  margin: 0 10px 30px 10px;
+}
+
+.label {
+  font-size: 48px;
+  font-family: 'DrukWideBold';
+}
+
+.force-small-font {
+  font-size: 20px;
+  font-family: 'PoppinsMedium', sans-serif;
+}
+
+.force-center {
+  display: table;
+  margin: 0 auto -30px auto;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.hyperlink:link {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(158,161,173);
+  transition: all 0.5s;
+}
+.hyperlink:hover {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(198,201,213);
+  transform: scale(1.05);
+  transition: all 0.5s;
+}
+
+@keyframes GradMove { 
+    0% {
+      background-position: 10% 0%;
+    }
+    50% {
+      background-position: 91% 100%;
+      color: rgb(197,197,247);
+    }
+    100% {
+      background-position: 10% 0%;
+    }
+}
