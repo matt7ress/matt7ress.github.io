@@ -319,7 +319,7 @@ function load() {
     ge('extrassel').value = getprop(11)[0];
     getprop(11)[0]?ge('QMx').value = getprop(11)[1]:0;
     getprop(11)[0]?ge('QMy').value = getprop(11)[2]:0;
-    e_hand = [getprop(9), getprop(10)];
+    e_hands = [getprop(9), getprop(10)];
     ge('lefthandsel').value = getprop(9)[0];
     getprop(9)[0]?ge('lefthandx').value = getprop(9)[1]:0;
     getprop(9)[0]?ge('lefthandy').value = getprop(9)[2]:0;
