@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quickbg</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', (e) => {
+        const ei = (i) => document.getElementById(i);
+        const ev__ = (i) => ei(i).value;
+        const ev_ = (i) => ei(i).type == 'number' ? parseFloat(ev__(i)) : ev__(i);
+        const ev = (i) => isNaN(ev_(i)) && ei(i).type == 'number' ? 0 : ev_(i);
+        const rv = (a, v) => a + (Math.random() * 2 - 1) * v;
+        const canv = document.getElementById('result'),
+              ctx = canv.getContext('2d');
+        function drawPolygon(relpoints, x, y, size, rot, color, alpha) {
+          // relpoints: [[x, y], ...], usually from -1 to 1
+          // a triangle would be [[-1, -1], [1, -1], [0, 1]]
+          ctx.beginPath();
+          ctx.moveTo(
+            x + size * (relpoints[0][0] * Math.cos(rot) - relpoints[0][1] * Math.sin(rot)),
+            y + size * (relpoints[0][0] * Math.sin(rot) + relpoints[0][1] * Math.cos(rot))
+          );
+          for(let i = 1; i < relpoints.length; i++) {
+            ctx.lineTo(
+              x + size * (relpoints[i][0] * Math.cos(rot) - relpoints[i][1] * Math.sin(rot)),
+              y + size * (relpoints[i][0] * Math.sin(rot) + relpoints[i][1] * Math.cos(rot))
+            );
+          };
+          ctx.closePath();
+          ctx.fillStyle = color;
+          ctx.globalAlpha = alpha / 255;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        };
+        function rgb2hsv(hexstr) {
+          let r = hexstr.slice(1, 3),
+              g = hexstr.slice(3, 5),
+              b = hexstr.slice(5);
+          r = parseInt(r, 16);
+          g = parseInt(g, 16);
+          b = parseInt(b, 16);
+          r /= 255;
+          g /= 255;
+          b /= 255;
+          let v=Math.max(r,g,b), c=v-Math.min(r,g,b);
+          let h= c && ((v==r) ? (g-b)/c : ((v==g) ? 2+(b-r)/c : 4+(r-g)/c)); 
+          return [(h<0?h+6:h)/6, v&&c/v, v];
+        };
+        function hsv2rgb(h, s, v) {
+          let f= (n,k=(n+h*6)%6) => v - v*s*Math.max( Math.min(k,4-k,1), 0);
+          r = Math.round(f(5) * 255);
+          g = Math.round(f(3) * 255);
+          b = Math.round(f(1) * 255);
+          return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`;
+        };
+        ei('downloadpngbtn').addEventListener('click', () => {
+          const link = document.createElement('a');
+          link.download = 'background.png';
+          link.href = canv.toDataURL('image/png');
+          link.click();
+          link.remove();
+        });
+        ei('regenbtn').addEventListener('click', () => {
+          canv.width = ev('width'),
+          canv.height = ev('height');
+          let hsv = rgb2hsv(ev('bgavg'));
+          let bgvar = ev('bgvar') ?? '0,0,0';
+          bgvar = bgvar.split(',').map(v => parseFloat(v) / 255);
+          ctx.fillStyle = hsv2rgb(
+            rv(hsv[0], bgvar[0]),
+            rv(hsv[1], bgvar[1]),
+            rv(hsv[2], bgvar[2])
+          );
+          ctx.fillRect(0, 0, canv.width, canv.height);
+          let filter1 = [
+            `blur(${rv(ev('ftbluravg'), ev('ftblurvar'))}px)`,
+            `brightness(${rv(ev('ftlightavg'), ev('ftlightvar'))}%)`,
+            `contrast(${rv(ev('ftcontrastavg'), ev('ftcontrastvar'))}%)`,
+            `grayscale(${rv(ev('ftgrayavg'), ev('ftgrayvar'))}%)`,
+            `hue-rotate(${rv(ev('fthueavg'), ev('fthuevar'))}deg)`,
+            `invert(${rv(ev('ftinvavg'), ev('ftinvvar'))}%)`,
+            `saturate(${rv(ev('ftsatavg'), ev('ftsatvar'))}%)`,
+            `sepia(${rv(ev('ftsepiaavg'), ev('ftsepiavar'))}%)`,
+          ];
+          let filter2 = [];
+          for(const i of ev('ftorder')) {
+            filter2.push(filter1.splice(parseInt(i), 1)[0]);
+          };
+          ctx.filter = filter2.join(' ');
+          ctx.fillRect(0, 0, canv.width, canv.height);
+          const sizeavg = ev('sizeavg'),
+                sizevar = ev('sizevar') ?? 0;
+          const rotavg = ev('rotavg'),
+                rotvar = ev('rotvar') ?? 0;
+          const coloravg = ev('coloravg');
+          let   colorvar = ev('colorvar') ?? '0,0,0';
+          colorvar = colorvar.split(',').map(v => parseFloat(v) / 255);
+          const alphaavg = ev('alphaavg'),
+                alphavar = ev('alphavar') ?? 0;
+          const polygon = [];
+          for(const x of ev('points').split(' ')) {
+            polygon.push(x.split(',').map(v => -parseFloat(v)));
+          };
+          for(let i = 0; i < ev('amt'); i++) {
+            let x = Math.random() * canv.width,
+                y = Math.random() * canv.height;
+            hsv = rgb2hsv(coloravg);
+            hsv = [
+              rv(hsv[0], colorvar[0]),
+              rv(hsv[1], colorvar[1]),
+              rv(hsv[2], colorvar[2])
+            ];
+            filter1 = [
+              `blur(${rv(ev('ftbluravg'), ev('ftblurvar'))}px)`,
+              `brightness(${rv(ev('ftlightavg'), ev('ftlightvar'))}%)`,
+              `contrast(${rv(ev('ftcontrastavg'), ev('ftcontrastvar'))}%)`,
+              `grayscale(${rv(ev('ftgrayavg'), ev('ftgrayvar'))}%)`,
+              `hue-rotate(${rv(ev('fthueavg'), ev('fthuevar'))}deg)`,
+              `invert(${rv(ev('ftinvavg'), ev('ftinvvar'))}%)`,
+              `saturate(${rv(ev('ftsatavg'), ev('ftsatvar'))}%)`,
+              `sepia(${rv(ev('ftsepiaavg'), ev('ftsepiavar'))}%)`,
+            ];
+            filter2 = [];
+            for(const i of ev('ftorder')) {
+              filter2.push(filter1.splice(parseInt(i), 1)[0]);
+            };
+            ctx.filter = filter2.join(' ');
+            drawPolygon(
+              polygon,
+              x, y,
+              rv(sizeavg, sizevar), rv(rotavg, rotvar),
+              hsv2rgb(hsv[0], hsv[1], hsv[2]),
+              rv(alphaavg, alphavar)
+            );
+          };
+        });
+        ei('regenbtn').click();
+        ei('pttmptriangle').addEventListener('click', () => {
+          ei('points').value = '-.5,0 0,1 .5,0';
+        });
+        ei('pttmpsquare').addEventListener('click', () => {
+          ei('points').value = '-1,1 1,1 1,-1 -1,-1';
+        });
+        ei('pttmpcircle').addEventListener('click', () => {
+          const accuracy = ev('pttmpcircleaccuracy');
+          const rad = (d) => Math.PI * 2 * (d / 360 % 1);
+          let array = Array.from(Array(accuracy), (v,i)=>[Math.sin(rad(i*(360/accuracy)))/2+.5, Math.cos(rad(i*(360/accuracy)))/2+.5]);
+          let string = array.map((v)=>v.join(',')).join(' ');
+          ei('points').value = string;
+        });
+      });
+    </script>
+    <style>
+      * {
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>quick background generator</h1>
+    <h3>no css cuz im lazy &gt;:)</h3>
+    <hr>
+    <noscript>
+      <h1>javascript is required to generate your background!! please enable it</h1>
+    </noscript>
+    simple options<br>
+    (object properties)<br>
+    scale: <input id="sizeavg" placeholder="size" type="number" style="width:13ch" value="90"> &plusmn; <input id="sizevar" placeholder="variation" type="number" style="width:13ch" value="90"><br>
+    rotation: <input id="rotavg" placeholder="degrees" type="number" style="width:13ch" value="180"> &plusmn; <input id="rotvar" placeholder="variation" type="number" style="width:13ch" value="180"><br>
+    amount: <input id="amt" type="number" placeholder="obj amount" style="width:13ch" value="300"><br><br>
+    color: <input id="coloravg" type="color" value="#3584e4"> &plusmn; <input id="colorvar" placeholder="h,s,v (0-255, separated with commas)" style="width:30ch" value="10,0,0"><br>
+    alpha: <input id="alphaavg" type="number" placeholder="alpha (0-255)" style="width:13ch" value="40"> &plusmn; <input id="alphavar" type="number" placeholder="variation" style="width:13ch" value="40"><br><br>
+    (background properties)<br>
+    color: <input id="bgavg" type="color" value="#241f31"> &plusmn; <input id="bgvar" placeholder="h,s,v (0-255, separated with commas)" style="width:30ch" value="0,0,0"><br><br>
+    size: <input id="width" type="number" placeholder="width" value="1920">x<input id="height" type="number" placeholder="height" value="1080"><hr>
+    advanced options<br>
+    points:<br>
+    <textarea id="points" placeholder="x,y -x,.y x,y.y x.x,-y.y">-.5,0 0,1 .5,0</textarea><br>
+    <button id="pttmptriangle">triangle</button> <button id="pttmpsquare">square</button> <button id="pttmpcircle">circle</button><br>
+    circle accuracy: <input id="pttmpcircleaccuracy" type="number" placeholder="circle accuracy" style="width:13ch" value="360"><br><br>
+    filters:<br>
+    gaussian blur (px) - <input id="ftbluravg" type="number" placeholder="gaussian blur" style="width:13ch" value="3"> &plusmn; <input id="ftblurvar" type="number" placeholder="variation" style="width:13ch" value="7"><br>
+    brightness (0-100+) - <input id="ftlightavg" type="number" placeholder="brightness" style="width:13ch" value="100"> &plusmn; <input id="ftlightvar" type="number" placeholder="variation" style="width:13ch" value="0"><br>
+    contrast (0-100) - <input id="ftcontrastavg" type="number" placeholder="contrast" style="width:13ch" value="100"> &plusmn; <input id="ftcontrastvar" type="number" placeholder="variation" style="width:13ch" value="0"><br>
+    grayscale (0-100) - <input id="ftgrayavg" type="number" placeholder="grayscale" style="width:13ch" value="0"> &plusmn; <input id="ftgrayvar" type="number" placeholder="variation" style="width:13ch" value="0"><br>
+    hue shift (0-360) - <input id="fthueavg" type="number" placeholder="hue shift" style="width:13ch" value="0"> &plusmn; <input id="fthuevar" type="number" placeholder="variation" style="width:13ch" value="0"><br>
+    invert (0-100) - <input id="ftinvavg" type="number" placeholder="invert" style="width:13ch" value="0"> &plusmn; <input id="ftinvvar" type="number" placeholder="variation" style="width:13ch" value="0"><br>
+    saturation (0-100) - <input id="ftsatavg" type="number" placeholder="saturation" style="width:13ch" value="100"> &plusmn; <input id="ftsatvar" type="number" placeholder="variation" style="width:13ch" value="0"><br>
+    sepia (0-100) - <input id="ftsepiaavg" type="number" placeholder="sepia" style="width:13ch" value="0"> &plusmn; <input id="ftsepiavar" type="number" placeholder="variation" style="width:13ch" value="0"><br>
+    <input id="ftorder" placeholder="filter order" style="width:20ch;" value="00000000"><hr>
+    <button id="regenbtn">(re)generate</button> <button id="downloadpngbtn">download as PNG</button><br><br>
+    <canvas id="result" width="1920" height="1080" style="border:solid #000"></canvas>
+  </body>
+</html>
